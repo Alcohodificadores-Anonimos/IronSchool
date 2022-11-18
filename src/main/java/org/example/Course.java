@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
 
     private String courseId;
@@ -7,9 +10,17 @@ public class Course {
     private double price;
     private double moneyEarned;
     private Teacher teacher;
+    private static List<Course> courses = new ArrayList<>();
 
     public Course(String name, double price) {
         this.courseId = Utilities.generarIdRandom();
+        this.name = name;
+        this.price = price;
+        this.courses.add(new Course(courseId, name, price));
+    }
+
+    private Course(String courseId, String name, double price) {
+        this.courseId = courseId;
         this.name = name;
         this.price = price;
     }
@@ -54,8 +65,13 @@ public class Course {
         this.teacher = teacher;
     }
 
+    public static List<Course> getCourses() {
+        return courses;
+    }
+
     @Override
     public String toString() {
+
         return "Course{" +
                 "courseId='" + courseId + '\'' +
                 ", name='" + name + '\'' +
@@ -63,5 +79,7 @@ public class Course {
                 ", moneyEarned=" + moneyEarned +
                 ", teacher=" + teacher +
                 '}';
+
     }
+
 }
