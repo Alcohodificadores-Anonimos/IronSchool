@@ -9,9 +9,47 @@ public class Main {
     public static List<Student> studentList;
     public static List<Course> courseList;
     public static void main(String[] args) {
-        tempMethodToTestFunctionalities();
+
+        //tempMethodToTestFunctionalities();
         //setUpSchool();
-       // callMenu();
+        //callMenu();
+
+        Course courseDAM = new Course("DAM", 380);
+        Course courseASIX = new Course("ASIX", 250);
+        Student student = new Student("Raul", "C/ Falsa 123", "raul@gmail.com");
+
+        studentList = new ArrayList<>();
+        courseList = new ArrayList<>();
+
+        studentList.add(student);
+        courseList.add(courseDAM);
+        courseList.add(courseASIX);
+
+        System.out.println("\nCURSO SIN NINGUNA INSCRIPCIÓN");
+
+        System.out.println("\n\t" + courseDAM);
+        System.out.println("\t" + student);
+
+        System.out.println("\nCURSO CON UNA INSCRIPCIÓN");
+
+        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseDAM.getCourseId());
+
+        System.out.println("\n\t" + courseDAM);
+        System.out.println("\t" + student);
+
+        System.out.println("\nAÑADIMOS UN ALUMNO CON EL MISMO CURSO ASIGNADO");
+
+        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseDAM.getCourseId());
+
+        System.out.println("\n\t" + courseDAM);
+        System.out.println("\t" + student);
+
+        System.out.println("\nAÑADIMOS UN ALUMNO ASIGNANDOLE UN NUEVO CURSO");
+
+        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseASIX.getCourseId());
+
+        System.out.println("\n\t" + courseASIX);
+        System.out.println("\t" + student);
 
     }
 

@@ -1,13 +1,19 @@
 package ironschool;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Utilities {
 
     //CLASE DONDE SE CREARAN TODOS LOS MÉTODOS DE CREACIÓN Y GESTIÓN
 
+    private static Scanner scanner;
+
     //todo: MANU: Yo creare metodo crear teacher
+
+    //todo: RAUL: Cuando se cree un alumno, en el construcor, poner que se añada a la lista de alumnos para que ya
+    // pertenezca a la lista automaticamente
 
     public static String generarIdRandom() {
         UUID uuid = UUID.randomUUID();
@@ -70,23 +76,22 @@ public class Utilities {
 
     }
 
+    //Método para inscribir un alumno a un curso mediante sus IDs
     public static void enrollStudentIntoCourse(String studentID, String courseID) {
+
+        scanner = new Scanner(System.in);
 
         Student student = null;
         Course course = null;
 
-        //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
-        /*listStudents.forEach((studentElement) -> {
-            if (studentElement.getStudentId().equals(studentID)) {
-                student = studentElement;
-            }
-        });*/
+        int option;
+
+        //todo: preguntar a los profes si las listas tienen que ser staticas y publicas para poder acceder desde la clase Utilities
 
         //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
         for (Student studentElement : Main.studentList) {
             if (studentElement.getStudentId().equals(studentID)) {
                 student = studentElement;
-                System.out.println("-----ENCONTRADOOOOO STUDEEEEENT------");
                 break;
             }
         }
@@ -94,9 +99,75 @@ public class Utilities {
         for (Course courseElement : Main.courseList) {
             if (courseElement.getCourseId().equals(courseID)) {
                 course = courseElement;
-                System.out.println("-----ENCONTRADOOOOO COURSEEEE------");
                 break;
             }
+        }
+
+        //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
+        if (student == null) {
+            throw new IllegalArgumentException("No existe el alumno con ID (" + studentID + ") o no esta mal escrito");
+        }
+
+        //Si el curso no existe o el ID está mal escrito, lanzamos una exception
+        if (course == null) {
+            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o no esta mal escrito");
+        }
+
+        //Comprobamos que el estudiante no esté ya inscrito en un curso
+        if (student.getCourse() != null) {
+
+            //Si el curso que estemos añadiendo es el mismo que ya tiene asignado, saltamos el proceso y no lo cobramos
+            if (student.getCourse().getName().equals(course.getName())) {
+                System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante ya estába inscrito en el curso (" + course.getName() +
+                        "), volviendo al menú.");
+                return;
+            }
+
+            System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante está inscrito en un curso, quieres sobreescribir" +
+                    " el curso actual (" + student.getCourse().getName() + ") por el curso nuevo (" + course.getName()
+                    + ")? (1.Si | 2.No)");
+
+            //Validamos que la opción introducida sea correcta
+            while (true) {
+
+                if (!scanner.hasNextInt()) {
+
+                    System.out.println("Introduce un valor válido! (1.Si | 2.No)");
+                    scanner.next();
+
+                } else {
+
+                    option = scanner.nextInt();
+
+                    if (option == 1 || option == 2) {
+                        break;
+                    } else {
+                        System.out.println("Opción incorrecta! (1.Si | 2.No)");
+                    }
+
+                }
+
+            }
+
+            //Si es 1, actualizamos el curso, si no (es 2), no lo actualizamos
+            if (option == 1) {
+
+                //Le asignamos el nuevo curso al estudiante
+                student.setCourse(course);
+
+                //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
+                course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+
+                System.out.println("\n\tCurso actualizado! Volviendo al menú principal.");
+                return;
+
+            } else {
+
+                System.out.println("\n\tCurso no actualizado. Volviendo al menú principal.");
+                return;
+
+            }
+
         }
 
         //Le asignamos el curso al estudiante
@@ -105,10 +176,19 @@ public class Utilities {
         //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
         course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
 
+        System.out.println("\n\tCurso nuevo añadido! Volviendo al menú principal.");
+
     }
 
     //ASSIGN [TEACHER_ID] [COURSE_ID]:
     // This command will help assign the teacher specified to the corresponding course
+
+    //Método para asignar un profesor a un curso mediante sus IDs
+    public static void assigntTeacherIntoCourse(String teacherID, String courseID) {
+
+
+
+    }
 
     //SHOW COURSES: This command will display a list of all courses
 
