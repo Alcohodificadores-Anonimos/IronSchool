@@ -1,4 +1,4 @@
-package org.example;
+package ironschool;
 
 import java.util.UUID;
 
@@ -9,6 +9,5 @@ public class Utilities {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
-
 
 }
