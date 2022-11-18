@@ -4,14 +4,15 @@ public class Student {
 
     private String studentId;
     private String name;
+    private String address;
     private String email;
-    private String adress;
     private Course course;
 
-    public Student(String name, String email, String adress) {
+    public Student(String name, String address, String email) {
+        this.studentId = Utilities.generarIdRandom();
         this.name = name;
+        this.address = address;
         this.email = email;
-        this.adress = adress;
     }
 
     public String getStudentId() {
@@ -38,12 +39,12 @@ public class Student {
         this.email = email;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Course getCourse() {
@@ -60,7 +61,7 @@ public class Student {
                 "studenId='" + studentId + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", adress='" + adress + '\'' +
+                ", address='" + address + '\'' +
                 ", course=" + course +
                 '}';
     }

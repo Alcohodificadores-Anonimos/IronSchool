@@ -9,6 +9,7 @@ public class Course {
     private Teacher teacher;
 
     public Course(String name, double price) {
+        this.courseId = Utilities.generarIdRandom();
         this.name = name;
         this.price = price;
     }
