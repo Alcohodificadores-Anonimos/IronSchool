@@ -1,4 +1,4 @@
-package org.example;
+package ironschool;
 
 public class Student {
 
