@@ -1,7 +1,6 @@
 package ironschool;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Utilities {
 
@@ -70,6 +69,7 @@ public class Utilities {
 
     }
 
+
     public static void enrollStudentIntoCourse(String studentID, String courseID) {
 
         Student student = null;
@@ -104,6 +104,63 @@ public class Utilities {
 
         //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
         course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+
+    }
+
+    //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
+    public static void createTeacher(List<Teacher> teachers) throws InputMismatchException{
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many teacher do you want?");
+        int numTeachers = scanner.nextInt();
+
+        for (int i = 0; i < numTeachers; i++) {
+            scanner = new Scanner(System.in);
+            System.out.println("Enter the Teacher's name");
+            String name = scanner.nextLine();
+            System.out.println("Enter the Teacher's salary");
+            double salary = scanner.nextDouble();
+            teachers.add(new Teacher(name,salary));
+        }
+
+    }
+
+    public static void createCourses(List<Course> courses) throws InputMismatchException{
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many courses do you want?");
+        int numCourses = scanner.nextInt();
+
+        for (int i = 0; i < numCourses; i++) {
+            scanner = new Scanner(System.in);
+            System.out.println("Enter the Course's name");
+            String name = scanner.nextLine();
+            System.out.println("Enter the price of this course ");
+            double price = scanner.nextDouble();
+            courses.add(new Course(name,price));
+        }
+
+    }
+
+    public static void createStudent(List<Student> students) throws InputMismatchException{
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many students do you want?");
+        int numStudents = scanner.nextInt();
+
+        for (int i = 0; i < numStudents; i++) {
+            scanner = new Scanner(System.in);
+            System.out.println("Enter the Student's name");
+            String name = scanner.nextLine();
+            System.out.println("Enter the adress of the Student ");
+            String adress = scanner.nextLine();
+            System.out.println("Enter the email of the Student ");
+            String email = scanner.nextLine();
+
+            students.add(new Student(name,adress,email));
+        }
 
     }
 
