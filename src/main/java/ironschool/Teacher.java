@@ -1,4 +1,4 @@
-package org.example;
+package ironschool;
 
 public class Teacher {
 
@@ -38,10 +38,13 @@ public class Teacher {
 
     @Override
     public String toString() {
+
         return "Teacher{" +
                 "teacherId='" + teacherId + '\'' +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 '}';
+
     }
+
 }
