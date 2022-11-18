@@ -1,65 +1,32 @@
 package ironschool;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     public static List<Student> studentList;
+    public static List<Teacher> teacherList;
     public static List<Course> courseList;
     public static void main(String[] args) {
+        tempMethodToTestFunctionalities();
+        setUpSchool();
+       // callMenu();
 
-        //tempMethodToTestFunctionalities();
-        //setUpSchool();
-        //callMenu();
-
-        Course courseDAM = new Course("DAM", 380);
-        Course courseASIX = new Course("ASIX", 250);
-        Student student = new Student("Raul", "C/ Falsa 123", "raul@gmail.com");
-
-        studentList = new ArrayList<>();
-        courseList = new ArrayList<>();
-
-        studentList.add(student);
-        courseList.add(courseDAM);
-        courseList.add(courseASIX);
-
-        System.out.println("\nCURSO SIN NINGUNA INSCRIPCIÓN");
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + student);
-
-        System.out.println("\nCURSO CON UNA INSCRIPCIÓN");
-
-        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + student);
-
-        System.out.println("\nAÑADIMOS UN ALUMNO CON EL MISMO CURSO ASIGNADO");
-
-        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + student);
-
-        System.out.println("\nAÑADIMOS UN ALUMNO ASIGNANDOLE UN NUEVO CURSO");
-
-        Utilities.enrollStudentIntoCourse(student.getStudentId(), courseASIX.getCourseId());
-
-        System.out.println("\n\t" + courseASIX);
-        System.out.println("\t" + student);
 
     }
 
     // Test method for functionalities to implement later on
     private static void tempMethodToTestFunctionalities() {
-        List<Teacher> teacherList = new ArrayList<Teacher>();
-        studentList = new ArrayList<Student>();
-        courseList = new ArrayList<Course>();
-        Teacher teacher = new Teacher("Jose", 2000); Teacher teacher1 = new Teacher("Josefa", 1000);
-        Student student = new Student("St","email@email.com", "en la calle, 69"); Student student1 = new Student("Stu","email@email.org", "en la calle, 66");
+        teacherList = new ArrayList<>();
+        studentList = new ArrayList<>();
+        courseList = new ArrayList<>();
+        /*Teacher teacher = new Teacher("Jose", 2000);
+        Teacher teacher1 = new Teacher("Josefa", 1000);
+        Student student = new Student("St","email@email.com", "en la calle, 69");
+        Student student1 = new Student("Stu","email@email.org", "en la calle, 66");
         Course course = new Course("Cursillo",999); Course course1 = new Course("Master",1000);
         teacherList.add(teacher); teacherList.add(teacher1);
         studentList.add(student); studentList.add(student1);
@@ -73,21 +40,34 @@ public class Main {
         Utilities.enrollStudentIntoCourse(student.getStudentId(), course1.getCourseId());
 
         System.out.println(student);
-        System.out.println(course1);
+        System.out.println(course1);*/
     }
 
     private static void setUpSchool() {
-        System.out.println("Type a name for the school: ");
-        String name = sc.nextLine();
-        System.out.println("How many teacher you want?");
-        int numTeachers = sc.nextInt();
-        // Ask for teacher details
-        System.out.println("How many courses you want?");
-        int numCourses = sc.nextInt();
-        // Ask for courses details
-        System.out.println("How many students you want?");
-        int numStudents = sc.nextInt();
-        // Ask for students details
+
+        try {
+            System.out.println("Type a name for the school: ");
+            String name = sc.nextLine();
+
+            //METODO CREACION DE TEACHERS
+            Utilities.createTeacher(teacherList);
+            //IMPRIMIMOS LA LISTA DE TEACHERS
+            System.out.println(teacherList);
+
+            //METODO CREACION DE CURSOS
+            Utilities.createCourses(courseList);
+            //IMPRIMIMOS LA LISTA DE CURSOS
+            System.out.println(courseList);
+
+            //METODO DE CREACION DE ESTUDIANTES
+            Utilities.createStudent(studentList);
+            //IMPRIMIMOS LA LISTA DE ESTUDIANTES
+            System.out.println(studentList);
+
+        } catch (Exception e) {
+            throw new InputMismatchException("Introduce bien los valores");
+        }
+
     }
 
     private static void callMenu() {
