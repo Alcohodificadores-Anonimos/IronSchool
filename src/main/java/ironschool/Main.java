@@ -6,19 +6,20 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-
+    public static List<Student> studentList;
+    public static List<Course> courseList;
     public static void main(String[] args) {
         tempMethodToTestFunctionalities();
-        setUpSchool();
-        callMenu();
+        //setUpSchool();
+       // callMenu();
 
     }
 
     // Test method for functionalities to implement later on
     private static void tempMethodToTestFunctionalities() {
         List<Teacher> teacherList = new ArrayList<Teacher>();
-        List<Student> studentList = new ArrayList<Student>();
-        List<Course> courseList = new ArrayList<Course>();
+        studentList = new ArrayList<Student>();
+        courseList = new ArrayList<Course>();
         Teacher teacher = new Teacher("Jose", 2000); Teacher teacher1 = new Teacher("Josefa", 1000);
         Student student = new Student("St","email@email.com", "en la calle, 69"); Student student1 = new Student("Stu","email@email.org", "en la calle, 66");
         Course course = new Course("Cursillo",999); Course course1 = new Course("Master",1000);
@@ -30,6 +31,11 @@ public class Main {
         System.out.println(teacherList.toString());
         System.out.println(student.toString());
         System.out.println(course.toString());
+
+        Utilities.enrollStudentIntoCourse(student.getStudentId(), course1.getCourseId());
+
+        System.out.println(student);
+        System.out.println(course1);
     }
 
     private static void setUpSchool() {
