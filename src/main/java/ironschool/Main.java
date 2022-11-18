@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-    public static List<Student> studentList;
     public static List<Course> courseList;
+    public static List<Student> studentList;
+    public static List<Teacher> teacherList;
     public static void main(String[] args) {
 
         //tempMethodToTestFunctionalities();
@@ -18,8 +19,9 @@ public class Main {
         Course courseASIX = new Course("ASIX", 250);
         Student student = new Student("Raul", "C/ Falsa 123", "raul@gmail.com");
 
-        studentList = new ArrayList<>();
         courseList = new ArrayList<>();
+        teacherList = new ArrayList<>();
+        studentList = new ArrayList<>();
 
         studentList.add(student);
         courseList.add(courseDAM);
@@ -55,9 +57,11 @@ public class Main {
 
     // Test method for functionalities to implement later on
     private static void tempMethodToTestFunctionalities() {
-        List<Teacher> teacherList = new ArrayList<Teacher>();
-        studentList = new ArrayList<Student>();
-        courseList = new ArrayList<Course>();
+
+        courseList = new ArrayList<>();
+        teacherList = new ArrayList<>();
+        studentList = new ArrayList<>();
+
         Teacher teacher = new Teacher("Jose", 2000); Teacher teacher1 = new Teacher("Josefa", 1000);
         Student student = new Student("St","email@email.com", "en la calle, 69"); Student student1 = new Student("Stu","email@email.org", "en la calle, 66");
         Course course = new Course("Cursillo",999); Course course1 = new Course("Master",1000);
@@ -74,6 +78,7 @@ public class Main {
 
         System.out.println(student);
         System.out.println(course1);
+
     }
 
     private static void setUpSchool() {

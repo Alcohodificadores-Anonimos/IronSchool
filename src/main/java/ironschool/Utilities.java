@@ -86,7 +86,7 @@ public class Utilities {
 
         int option;
 
-        //todo: preguntar a los profes si las listas tienen que ser staticas y publicas para poder acceder desde la clase Utilities
+        //todo: RAUL: preguntar a los profes si las listas tienen que ser staticas y publicas para poder acceder desde la clase Utilities
 
         //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
         for (Student studentElement : Main.studentList) {
@@ -105,12 +105,12 @@ public class Utilities {
 
         //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
         if (student == null) {
-            throw new IllegalArgumentException("No existe el alumno con ID (" + studentID + ") o no esta mal escrito");
+            throw new IllegalArgumentException("No existe el alumno con ID (" + studentID + ") o está mal escrito");
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
         if (course == null) {
-            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o no esta mal escrito");
+            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
         }
 
         //Comprobamos que el estudiante no esté ya inscrito en un curso
@@ -123,6 +123,7 @@ public class Utilities {
                 return;
             }
 
+            //Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
             System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante está inscrito en un curso, quieres sobreescribir" +
                     " el curso actual (" + student.getCourse().getName() + ") por el curso nuevo (" + course.getName()
                     + ")? (1.Si | 2.No)");
@@ -139,17 +140,14 @@ public class Utilities {
 
                     option = scanner.nextInt();
 
-                    if (option == 1 || option == 2) {
-                        break;
-                    } else {
-                        System.out.println("Opción incorrecta! (1.Si | 2.No)");
-                    }
+                    if (option == 1 || option == 2) break;
+                    else System.out.println("Opción incorrecta! (1.Si | 2.No)");
 
                 }
 
             }
 
-            //Si es 1, actualizamos el curso, si no (es 2), no lo actualizamos
+            //Si es 1, actualizamos el curso, si no (opción 2), no lo actualizamos
             if (option == 1) {
 
                 //Le asignamos el nuevo curso al estudiante
@@ -159,14 +157,14 @@ public class Utilities {
                 course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
 
                 System.out.println("\n\tCurso actualizado! Volviendo al menú principal.");
-                return;
 
             } else {
 
                 System.out.println("\n\tCurso no actualizado. Volviendo al menú principal.");
-                return;
 
             }
+
+            return;
 
         }
 
@@ -186,7 +184,100 @@ public class Utilities {
     //Método para asignar un profesor a un curso mediante sus IDs
     public static void assigntTeacherIntoCourse(String teacherID, String courseID) {
 
+        scanner = new Scanner(System.in);
 
+        Teacher teacher = null;
+        Course course = null;
+
+        int option;
+
+        //todo: RAÚL: He añadido un atiuto de clase en Teacher de tipo curso, preguntar a los profes a ver si hace falta
+        // yo creo que si para comprobar si un profesor pertenece a un curso o no
+
+        //Buscamos si el ID del profesor introducido existe en la lista de profesores
+        for (Teacher teacherElement : Main.teacherList) {
+
+            if (teacherElement.getTeacherId().equals(teacherID)) {
+                teacher = teacherElement;
+                break;
+            }
+
+        }
+
+        //Buscamos si el ID del curso introducido existe en la lista de cursos
+        for (Course courseElement : Main.courseList) {
+            if (courseElement.getCourseId().equals(courseID)) {
+                course = courseElement;
+                break;
+            }
+        }
+
+        //Si el profesor no existe o el ID está mal escrito, lanzamos una exception
+        if (teacher == null) {
+            throw new IllegalArgumentException("No existe el profesor con ID (" + teacherID + ") o está mal escrito");
+        }
+
+        //Si el curso no existe o el ID está mal escrito, lanzamos una exception
+        if (course == null) {
+            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
+        }
+
+        //Comprobamos que el profesor no esté ya asignado en un curso
+        if (teacher.getCourse() != null) {
+
+            //Si el curso que estemos asignando es el mismo que ya tiene asignado, saltamos el proceso
+            if (teacher.getCourse().getName().equals(course.getName())) {
+                System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor ya estaba asignado en el curso (" + course.getName() +
+                        "), volviendo al menú.");
+                return;
+            }
+
+            //Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
+            System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor está asignado en un curso, quieres sobreescribir" +
+                    " el curso actual (" + teacher.getCourse().getName() + ") por el curso nuevo (" + course.getName()
+                    + ")? (1.Si | 2.No)");
+
+            //Validamos que la opción introducida sea correcta
+            while (true) {
+
+                if (!scanner.hasNextInt()) {
+
+                    System.out.println("Introduce un valor válido! (1.Si | 2.No)");
+                    scanner.next();
+
+                } else {
+
+                    option = scanner.nextInt();
+
+                    if (option == 1 || option == 2) break;
+                    else System.out.println("Opción incorrecta! (1.Si | 2.No)");
+
+                }
+
+            }
+
+            //Si es 1, actualizamos el curso, si no (opción 2), no lo actualizamos
+            if (option == 1) {
+
+                //Le asignamos el curso al profesor
+                teacher.setCourse(course);
+
+                System.out.println("\n\tProfesor actualizado correctamente! Volviendo al menú principal.");
+
+            } else {
+
+                System.out.println("\n\tCurso no actualizado. Volviendo al menú principal.");
+
+            }
+
+            return;
+
+        }
+
+        //Le asignamos el curso al profesor
+        teacher.setCourse(course);
+
+        System.out.println("\n\tProfesor asignado correctamente! Volviendo al menú principal.");
 
     }
 
