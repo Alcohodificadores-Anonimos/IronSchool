@@ -1,12 +1,15 @@
 package ironschool;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Utilities {
 
     //CLASE DONDE SE CREARAN TODOS LOS MÉTODOS DE CREACIÓN Y GESTIÓN
 
-    public static String generarIdRandom(){
+    //todo: MANU: Yo creare metodo crear teacher
+
+    public static String generarIdRandom() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
@@ -39,11 +42,70 @@ public class Utilities {
 
     }
 
-    /*public static void enrollStudentIntoCourse(String studentID, String courseID) {
+    public static void commands(String command) {
+
+        //command -> ENROLL 1 2
+        //command2 -> ENROLL
+        //studentID -> 1
+        //courseID -> 2
+
+        String command2 = command.split(" ")[0].toUpperCase();
+        String studentID = command.split(" ")[1].toUpperCase();
+        String courseID = command.split(" ")[2].toUpperCase();
+
+        switch (command2) {
+
+            case "ENROLL":
+
+                enrollStudentIntoCourse(studentID, courseID);
+
+                break;
+
+            case "ASSIGN":
+
+                break;
+
+        }
 
 
+    }
 
-    }*/
+    public static void enrollStudentIntoCourse(String studentID, String courseID) {
+
+        Student student = null;
+        Course course = null;
+
+        //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
+        /*listStudents.forEach((studentElement) -> {
+            if (studentElement.getStudentId().equals(studentID)) {
+                student = studentElement;
+            }
+        });*/
+
+        //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
+        for (Student studentElement : Main.studentList) {
+            if (studentElement.getStudentId().equals(studentID)) {
+                student = studentElement;
+                System.out.println("-----ENCONTRADOOOOO STUDEEEEENT------");
+                break;
+            }
+        }
+        //Buscamos si el ID del curso introducido existe en la lista de cursos
+        for (Course courseElement : Main.courseList) {
+            if (courseElement.getCourseId().equals(courseID)) {
+                course = courseElement;
+                System.out.println("-----ENCONTRADOOOOO COURSEEEE------");
+                break;
+            }
+        }
+
+        //Le asignamos el curso al estudiante
+        student.setCourse(course);
+
+        //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
+        course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+
+    }
 
     //ASSIGN [TEACHER_ID] [COURSE_ID]:
     // This command will help assign the teacher specified to the corresponding course
