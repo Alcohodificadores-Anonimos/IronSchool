@@ -8,6 +8,8 @@ public class Utilities {
 
     //CLASE DONDE SE CREARAN TODOS LOS MÉTODOS DE CREACIÓN Y GESTIÓN
 
+    //BORRAR ESTE COMENTARIO
+
     private static Scanner scanner;
 
     //todo: MANU: Yo creare metodo crear teacher
