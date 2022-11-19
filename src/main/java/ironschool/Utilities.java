@@ -90,17 +90,22 @@ public class Utilities {
 
         //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
         for (Student studentElement : Main.studentList) {
+
             if (studentElement.getStudentId().equals(studentID)) {
                 student = studentElement;
                 break;
             }
+
         }
+
         //Buscamos si el ID del curso introducido existe en la lista de cursos
         for (Course courseElement : Main.courseList) {
+
             if (courseElement.getCourseId().equals(courseID)) {
                 course = courseElement;
                 break;
             }
+
         }
 
         //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
@@ -182,7 +187,7 @@ public class Utilities {
     // This command will help assign the teacher specified to the corresponding course
 
     //Método para asignar un profesor a un curso mediante sus IDs
-    public static void assigntTeacherIntoCourse(String teacherID, String courseID) {
+    public static void assignTeacherIntoCourse(String teacherID, String courseID) {
 
         scanner = new Scanner(System.in);
 
@@ -191,8 +196,8 @@ public class Utilities {
 
         int option;
 
-        //todo: RAÚL: He añadido un atiuto de clase en Teacher de tipo curso, preguntar a los profes a ver si hace falta
-        // yo creo que si para comprobar si un profesor pertenece a un curso o no
+        //todo: RAUL: En la clase teacher he creado la variable Course sin setter para comprobar el curso del teacher,
+        // esta bien eso?
 
         //Buscamos si el ID del profesor introducido existe en la lista de profesores
         for (Teacher teacherElement : Main.teacherList) {
@@ -206,10 +211,12 @@ public class Utilities {
 
         //Buscamos si el ID del curso introducido existe en la lista de cursos
         for (Course courseElement : Main.courseList) {
+
             if (courseElement.getCourseId().equals(courseID)) {
                 course = courseElement;
                 break;
             }
+
         }
 
         //Si el profesor no existe o el ID está mal escrito, lanzamos una exception
@@ -223,18 +230,20 @@ public class Utilities {
         }
 
         //Comprobamos que el profesor no esté ya asignado en un curso
-        if (teacher.getCourse() != null) {
+        if (course.getTeacher() != null) {
 
             //Si el curso que estemos asignando es el mismo que ya tiene asignado, saltamos el proceso
-            if (teacher.getCourse().getName().equals(course.getName())) {
+            if (course.getTeacher().getName().equals(teacher.getName())) {
                 System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor ya estaba asignado en el curso (" + course.getName() +
                         "), volviendo al menú.");
                 return;
             }
 
-            //Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
+            //todo: RAUL: Creo que esto sobra ya que un profesor puede estar en mas de un curso asignado
+
+            /*//Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
             System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor está asignado en un curso, quieres sobreescribir" +
-                    " el curso actual (" + teacher.getCourse().getName() + ") por el curso nuevo (" + course.getName()
+                    " el curso actual (" + "AAAAA" + ") por el curso nuevo (" + course.getName()
                     + ")? (1.Si | 2.No)");
 
             //Validamos que la opción introducida sea correcta
@@ -259,8 +268,8 @@ public class Utilities {
             //Si es 1, actualizamos el curso, si no (opción 2), no lo actualizamos
             if (option == 1) {
 
-                //Le asignamos el curso al profesor
-                teacher.setCourse(course);
+                //Le asignamos el profesor al curso
+                course.setTeacher(teacher);
 
                 System.out.println("\n\tProfesor actualizado correctamente! Volviendo al menú principal.");
 
@@ -270,12 +279,12 @@ public class Utilities {
 
             }
 
-            return;
+            return;*/
 
         }
 
-        //Le asignamos el curso al profesor
-        teacher.setCourse(course);
+        //Le asignamos el profesor al curso
+        course.setTeacher(teacher);
 
         System.out.println("\n\tProfesor asignado correctamente! Volviendo al menú principal.");
 
@@ -283,23 +292,127 @@ public class Utilities {
 
     //SHOW COURSES: This command will display a list of all courses
 
+    //Método para enseñar todos los cursos
+    public static List<Course> showAllCourses() {
+        return Main.courseList;
+    }
+
     //LOOKUP COURSE [COURSE_ID]:
     // This command will display the full details of the specified course
+
+    //Método para enseñar toda la información de un curso mediante su ID
+    public static String lookupCourse(String courseID) {
+
+        Course course = null;
+
+        //Buscamos si el ID del curso introducido existe en la lista de cursos
+        for (Course courseElement : Main.courseList) {
+
+            if (courseElement.getCourseId().equals(courseID)) {
+                course = courseElement;
+                break;
+            }
+
+        }
+
+        if (course == null) {
+            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
+        }
+
+        return course.toString();
+
+    }
 
     //SHOW STUDENTS:
     // This command will display a list of all students
 
+    //Método para enseñar todos los estudiantes
+    public static List<Student> showAllStudents() {
+        return Main.studentList;
+    }
+
     //LOOKUP STUDENT [STUDENT_ID]:
     // This command will display the full details of the specified student
+
+    //Método para enseñar toda la información de un estudiante mediante su ID
+    public static String lookupStudent(String studentID) {
+
+        Student student = null;
+
+        //Buscamos si el ID del curso introducido existe en la lista de cursos
+        for (Student studentElement : Main.studentList) {
+
+            if (studentElement.getStudentId().equals(studentID)) {
+                student = studentElement;
+                break;
+            }
+
+        }
+
+        if (student == null) {
+            throw new IllegalArgumentException("No existe el estudiante con ID (" + studentID + ") o está mal escrito");
+        }
+
+        return student.toString();
+
+    }
 
     //SHOW TEACHERS:
     // This command will display a list of all teachers
 
+    //Método para enseñar todos los profesores
+    public static List<Teacher> showAllTeachers() {
+        return Main.teacherList;
+    }
+
     //LOOKUP TEACHER [TEACHER_ID]:
     // This command will display the full details of the specified teacher
+
+    //Método para enseñar toda la información de un profesor mediante su ID
+    public static String lookupTeacher(String teacherID) {
+
+        Teacher teacher = null;
+
+        //Buscamos si el ID del curso introducido existe en la lista de cursos
+        for (Teacher teacherElement : Main.teacherList) {
+
+            if (teacherElement.getTeacherId().equals(teacherID)) {
+                teacher = teacherElement;
+                break;
+            }
+
+        }
+
+        if (teacher == null) {
+            throw new IllegalArgumentException("No existe el profesor con ID (" + teacherID + ") o está mal escrito");
+        }
+
+        return teacher.toString();
+
+    }
 
     //SHOW PROFIT:
     // This command will calculate
     // (The total money earned from all courses) - (The sum of all the teachers’ salaries) and return the result
+
+    //Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
+    public static double showProfitFromAllCourses(List<Course> courseList, List<Teacher> teacherList) {
+
+        double totalEarned = 0;
+        double totalSalaries = 0;
+
+        //todo: RAUL: Si el salario es mayor a lo recaudado, devolvemos un valor negativo o 0?
+
+        for (Course course : courseList) {
+            totalEarned += course.getMoneyEarned();
+        }
+
+        for (Teacher teacher : teacherList) {
+            totalSalaries += teacher.getSalary();
+        }
+
+        return totalEarned - totalSalaries;
+
+    }
 
 }
