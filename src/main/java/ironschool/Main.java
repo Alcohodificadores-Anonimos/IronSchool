@@ -55,148 +55,123 @@ public class Main {
         studentList.add(studentEdu);
         studentList.add(studentRaul);
 
-        Utilities.enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAW.getCourseId());
-        Utilities.enrollStudentIntoCourse(studentEdu.getStudentId(), courseDAW.getCourseId());
-        Utilities.enrollStudentIntoCourse(studentXavi.getStudentId(), courseDAW.getCourseId());
-        Utilities.enrollStudentIntoCourse(studentManu.getStudentId(), courseCybersecurity.getCourseId());
+        System.out.println(studentCristian + "\n" + courseDAW);
 
-        System.out.println("\nCURSO SIN NINGUNA INSCRIPCIÓN");
+        enroll(studentCristian.getStudentId(), courseDAW.getCourseId());
 
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + studentRaul);
-
-        System.out.println("\nCURSO CON UNA INSCRIPCIÓN");
-
-        Utilities.enrollStudentIntoCourse(studentRaul.getStudentId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + studentRaul);
-
-        System.out.println("\nAÑADIMOS UN ALUMNO CON EL MISMO CURSO ASIGNADO");
-
-        Utilities.enrollStudentIntoCourse(studentRaul.getStudentId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + studentRaul);
-
-        System.out.println("\nAÑADIMOS UN ALUMNO ASIGNÁNDOLE UN NUEVO CURSO");
-
-        Utilities.enrollStudentIntoCourse(studentRaul.getStudentId(), courseASIX.getCourseId());
-
-        System.out.println("\n\t" + courseASIX);
-        System.out.println("\t" + studentRaul);
+        System.out.println(studentCristian + "\n" + courseDAW);
 
         //---------------------------------------------------------------------
 
         //---RAUL---COMPROBACIONES MÉTODO [ASSIGN] assignTeacherIntoCourse()---
 
-        System.out.println("\nCURSO SIN NINGÚN PROFESOR");
+        /**System.out.println("\nCURSO SIN NINGÚN PROFESOR");
 
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
+         System.out.println("\n\t" + courseDAM);
+         System.out.println("\t" + teacherJaume);
 
-        System.out.println("\nCURSO CON UN PROFESOR");
+         System.out.println("\nCURSO CON UN PROFESOR");
 
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
+         Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
 
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
+         System.out.println("\n\t" + courseDAM);
+         System.out.println("\t" + teacherJaume);
 
-        System.out.println("\nAÑADIMOS UN PROFESOR CON EL MISMO CURSO ASIGNADO");
+         System.out.println("\nAÑADIMOS UN PROFESOR CON EL MISMO CURSO ASIGNADO");
 
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
+         Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
 
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
+         System.out.println("\n\t" + courseDAM);
+         System.out.println("\t" + teacherJaume);
 
-        System.out.println("\nAÑADIMOS UN PROFESOR ASIGNÁNDOLE UN NUEVO CURSO");
+         System.out.println("\nAÑADIMOS UN PROFESOR ASIGNÁNDOLE UN NUEVO CURSO");
 
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseASIX.getCourseId());
+         Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseASIX.getCourseId());
 
-        System.out.println("\n\t" + courseASIX);
-        System.out.println("\t" + teacherJaume);
+         System.out.println("\n\t" + courseASIX);
+         System.out.println("\t" + teacherJaume);
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW COURSES] showAllCourses()---
+         //---RAUL---COMPROBACIONES MÉTODO [SHOW COURSES] showAllCourses()---
 
-        System.out.println("\nNOMBRES DE TODOS LOS CURSOS:\n");
+         System.out.println("\nNOMBRES DE TODOS LOS CURSOS:\n");
 
-        Utilities.showAllCourses().forEach(course -> System.out.println(course.getName()));
+         Utilities.showAllCourses().forEach(course -> System.out.println(course.getName()));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP COURSE] lookupCourse()---
+         //---RAUL---COMPROBACIONES MÉTODO [LOOKUP COURSE] lookupCourse()---
 
-        System.out.println("\nBUSCAMOS CURSO POR ID QUE EXISTE:");
+         System.out.println("\nBUSCAMOS CURSO POR ID QUE EXISTE:");
 
-        System.out.println("\n\t" + Utilities.lookupCourse(courseASIX.getCourseId()));
+         System.out.println("\n\t" + Utilities.lookupCourse(courseASIX.getCourseId()));
 
-        System.out.println("\nBUSCAMOS CURSO POR ID QUE NO EXISTE:");
+         System.out.println("\nBUSCAMOS CURSO POR ID QUE NO EXISTE:");
 
-        //System.out.println("\n\t" + Utilities.lookupCourse("12345"));
+         //System.out.println("\n\t" + Utilities.lookupCourse("12345"));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW STUDENTS] showAllStudents()---
+         //---RAUL---COMPROBACIONES MÉTODO [SHOW STUDENTS] showAllStudents()---
 
-        System.out.println("\nNOMBRES DE TODOS LOS ESTUDIANTES:\n");
+         System.out.println("\nNOMBRES DE TODOS LOS ESTUDIANTES:\n");
 
-        Utilities.showAllStudents().forEach(studentElement -> System.out.println(studentElement.getName()));
+         Utilities.showAllStudents().forEach(studentElement -> System.out.println(studentElement.getName()));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP STUDENT] lookupStudent()---
+         //---RAUL---COMPROBACIONES MÉTODO [LOOKUP STUDENT] lookupStudent()---
 
-        System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE EXISTE:");
+         System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE EXISTE:");
 
-        System.out.println("\n\t" + Utilities.lookupStudent(studentRaul.getStudentId()));
+         System.out.println("\n\t" + Utilities.lookupStudent(studentRaul.getStudentId()));
 
-        System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE NO EXISTE:");
+         System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE NO EXISTE:");
 
-        //System.out.println("\n\t" + Utilities.lookupStudent("12345"));
+         //System.out.println("\n\t" + Utilities.lookupStudent("12345"));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW TEACHERS] showAllStudents()---
+         //---RAUL---COMPROBACIONES MÉTODO [SHOW TEACHERS] showAllStudents()---
 
-        System.out.println("\nNOMBRES DE TODOS LOS PROFESORES:\n");
+         System.out.println("\nNOMBRES DE TODOS LOS PROFESORES:\n");
 
-        Utilities.showAllTeachers().forEach(teacherElement -> System.out.println(teacherElement.getName()));
+         Utilities.showAllTeachers().forEach(teacherElement -> System.out.println(teacherElement.getName()));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
+         //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
 
-        System.out.println("\nBUSCAMOS PROFESOR POR ID QUE EXISTE:");
+         System.out.println("\nBUSCAMOS PROFESOR POR ID QUE EXISTE:");
 
-        System.out.println("\n\t" + Utilities.lookupTeacher(teacherJaume.getTeacherId()));
+         System.out.println("\n\t" + Utilities.lookupTeacher(teacherJaume.getTeacherId()));
 
-        System.out.println("\nBUSCAMOS PROFESOR POR ID QUE NO EXISTE:");
+         System.out.println("\nBUSCAMOS PROFESOR POR ID QUE NO EXISTE:");
 
-        //System.out.println("\n\t" + Utilities.lookupTeacher("12345"));
+         //System.out.println("\n\t" + Utilities.lookupTeacher("12345"));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------
 
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
+         //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
 
-        System.out.println("\nNOMBRES DE TODOS LOS PROFESORES + SALARIOS:");
+         System.out.println("\nNOMBRES DE TODOS LOS PROFESORES + SALARIOS:");
 
-        Utilities.showAllTeachers().forEach(teacherElement -> {
-            System.out.println("\n\tNombre: " + teacherElement.getName() + " salario: " + teacherElement.getSalary());
-        });
+         Utilities.showAllTeachers().forEach(teacherElement -> {
+         System.out.println("\n\tNombre: " + teacherElement.getName() + " salario: " + teacherElement.getSalary());
+         });
 
-        System.out.println("\nNOMBRES DE TODOS LOS CURSOS + BENEFICIO RECAUDADO:");
+         System.out.println("\nNOMBRES DE TODOS LOS CURSOS + BENEFICIO RECAUDADO:");
 
-        Utilities.showAllCourses().forEach(courseElement -> {
-            System.out.println("\n\tNombre: " + courseElement.getName() + " beneficio recaudado: " + courseElement.getMoneyEarned());
-        });
+         Utilities.showAllCourses().forEach(courseElement -> {
+         System.out.println("\n\tNombre: " + courseElement.getName() + " beneficio recaudado: " + courseElement.getMoneyEarned());
+         });
 
-        System.out.println("\nBENEFICIO DE LOS CURSOS:");
+         System.out.println("\nBENEFICIO DE LOS CURSOS:");
 
-        System.out.println("\n\t" + Utilities.showProfitFromAllCourses(courseList, teacherList));
+         System.out.println("\n\t" + Utilities.showProfitFromAllCourses(courseList, teacherList));
 
-        //---------------------------------------------------------------------
+         //---------------------------------------------------------------------*/
 
     }
 
@@ -303,6 +278,47 @@ public class Main {
                 8) Lookup teacher
                 9) Show profit
                 """);
+    }
+
+    public static void enroll(String idStudent, String idCourse) {
+
+        Student student = null;
+        Course course = null;
+
+        //Este bucle for nos recorre la lista de estudiantes verificando que la id introducida correspone a un estudiante
+        for (Student studentCheck : studentList) {
+
+            if (studentCheck.getStudentId().equals(idStudent)) {
+                student = studentCheck;
+            }
+
+        }
+
+        //Este bucle for nos recorre la lista de cursos verificando que la id introducida correspone a un curso existente
+        for (Course courseCheck : courseList) {
+
+            if (courseCheck.getCourseId().equals(idCourse)) {
+                course = courseCheck;
+            }
+
+        }
+
+        //Este condicional nos da un mensaje de error en el caso de que la ID introducida del curso no coincida con ningún curso existente.
+        if (course == null) {
+            throw new IllegalArgumentException("Este curso no existe o el ID del curso está mal formulado.");
+        }
+
+        //Este condicional  nos da un mensaje de error en el caso de que la ID introducida del alumno no coincida con ninún alumno existente.
+        if (student == null) {
+            throw new IllegalArgumentException("Este alumno no existe o el ID del alumno está mal formulado");
+        }
+
+        //En el caso de que todo este correcto asignaremo un curso al alumno.
+        student.setCourse(course);
+
+        //Con este metodo seteamos el dinero obtenido del curso sumando el dinero ya recaudado con anterioridad más el precio del curso por alumno añadido.
+        course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
+
     }
 
 }
