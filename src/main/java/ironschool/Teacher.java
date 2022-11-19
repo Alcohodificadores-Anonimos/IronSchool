@@ -1,4 +1,4 @@
-package org.example;
+package ironschool;
 
 public class Teacher {
 
@@ -44,4 +44,5 @@ public class Teacher {
                 ", salary=" + salary +
                 '}';
     }
+
 }

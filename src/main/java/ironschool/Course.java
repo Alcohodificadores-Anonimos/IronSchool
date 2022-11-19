@@ -1,4 +1,4 @@
-package org.example;
+package ironschool;
 
 public class Course {
 
@@ -9,6 +9,13 @@ public class Course {
     private Teacher teacher;
 
     public Course(String name, double price) {
+        this.courseId = Utilities.generarIdRandom();
+        this.name = name;
+        this.price = price;
+    }
+
+    private Course(String courseId, String name, double price) {
+        this.courseId = courseId;
         this.name = name;
         this.price = price;
     }
@@ -53,8 +60,10 @@ public class Course {
         this.teacher = teacher;
     }
 
+
     @Override
     public String toString() {
+
         return "Course{" +
                 "courseId='" + courseId + '\'' +
                 ", name='" + name + '\'' +
@@ -62,5 +71,7 @@ public class Course {
                 ", moneyEarned=" + moneyEarned +
                 ", teacher=" + teacher +
                 '}';
+
     }
+
 }
