@@ -26,7 +26,7 @@ public class Utilities {
     // While also updating the money_earned of that course based on its price
 
     //Método para inscribir un alumno a un curso
-    public static void enrollStudentIntoCourse(Student student, Course course) {
+    /*public static void enrollStudentIntoCourse(Student student, Course course) {
 
         //todo: Mirar crear una clase escuela
 
@@ -47,7 +47,7 @@ public class Utilities {
 
         }
 
-    }
+    }*/
 
     public static void commands(String command) {
 
@@ -129,7 +129,7 @@ public class Utilities {
                 return;
             }
 
-            //Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
+            //Si el alumno ya estaba asignado a un curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
             System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante está inscrito en un curso, quieres sobreescribir" +
                     " el curso actual (" + student.getCourse().getName() + ") por el curso nuevo (" + course.getName()
                     + ")? (1.Si | 2.No)");
