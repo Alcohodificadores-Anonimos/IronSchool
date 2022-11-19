@@ -1,6 +1,7 @@
 package ironschool;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -232,17 +233,28 @@ public class Main {
     }
 
     private static void setUpSchool() {
-        System.out.println("Type a name for the school: ");
-        String name = sc.nextLine();
-        System.out.println("How many teacher you want?");
-        int numTeachers = sc.nextInt();
-        // Ask for teacher details
-        System.out.println("How many courses you want?");
-        int numCourses = sc.nextInt();
-        // Ask for courses details
-        System.out.println("How many students you want?");
-        int numStudents = sc.nextInt();
-        // Ask for students details
+        try {
+            System.out.println("Type a name for the school: ");
+            String name = sc.nextLine();
+
+            //METODO CREACION DE TEACHERS
+            Utilities.createTeacher(teacherList);
+            //IMPRIMIMOS LA LISTA DE TEACHERS
+            System.out.println(teacherList);
+
+            //METODO CREACION DE CURSOS
+            Utilities.createCourses(courseList);
+            //IMPRIMIMOS LA LISTA DE CURSOS
+            System.out.println(courseList);
+
+            //METODO DE CREACION DE ESTUDIANTES
+            Utilities.createStudent(studentList);
+            //IMPRIMIMOS LA LISTA DE ESTUDIANTES
+            System.out.println(studentList);
+
+        } catch (Exception e) {
+            throw new InputMismatchException("Introduce bien los valores");
+        }
     }
 
     private static void callMenu() {
