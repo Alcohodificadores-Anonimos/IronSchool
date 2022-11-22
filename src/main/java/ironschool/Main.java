@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import static ironschool.Utilities.enrollStudentIntoCourse;
+
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     public static List<Course> courseList;
@@ -57,7 +59,7 @@ public class Main {
 
         System.out.println(studentCristian + "\n" + courseDAW);
 
-        enroll(studentCristian.getStudentId(), courseDAW.getCourseId());
+        enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAW.getCourseId());
 
         System.out.println(studentCristian + "\n" + courseDAW);
 
@@ -200,7 +202,7 @@ public class Main {
         System.out.println(student.toString());
         System.out.println(course.toString());
 
-        Utilities.enrollStudentIntoCourse(student.getStudentId(), course1.getCourseId());
+        enrollStudentIntoCourse(student.getStudentId(), course1.getCourseId());
 
         System.out.println(student);
         System.out.println(course1);
@@ -209,6 +211,8 @@ public class Main {
 
     private static void setUpSchool() {
         try {
+
+            //--------Falta implementar bucle While(TRUE)
             System.out.println("Type a name for the school: ");
             String name = sc.nextLine();
 
@@ -228,7 +232,8 @@ public class Main {
             System.out.println(studentList);
 
         } catch (Exception e) {
-            throw new InputMismatchException("Introduce bien los valores");
+            System.err.println(e);
+
         }
     }
 

@@ -1,0 +1,20 @@
+
+
+- Test: (Junit) >> TODOS
+
+- Diagrama de clases >> Edu
+
+- Hacer el Readme(Documentación del proyecto) >> Cristian  
+
+- Menú comandos >> TODOS
+
+- Cambiar ID's (Que no solo esten n el constructor, tocar tambien setter) >> Xavi
+	
+	->// Hacer la ID autoincrementable y luego toString. (Para teacher, student y course)
+
+- Comprobar Scanner en metodos de validación >> Manu
+
+	-> EJ: Si meten un String pidiendo un Int que no pete.
+
+-Limpiar código >> Edu
+
