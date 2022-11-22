@@ -112,11 +112,13 @@ public class Utilities {
         //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
         if (student == null) {
             throw new IllegalArgumentException("No existe el alumno con ID (" + studentID + ") o está mal escrito");
+            //Hacer un try catch para la excepcion
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
         if (course == null) {
             throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
+            //Hacer un try catch para la excepcion
         }
 
         //Comprobamos que el estudiante no esté ya inscrito en un curso
@@ -198,7 +200,7 @@ public class Utilities {
         int option;
 
         //todo: RAUL: En la clase teacher he creado la variable Course sin setter para comprobar el curso del teacher,
-        // esta bien eso?
+        //esta bien eso?
 
         //Buscamos si el ID del profesor introducido existe en la lista de profesores
         for (Teacher teacherElement : Main.teacherList) {
@@ -318,6 +320,7 @@ public class Utilities {
 
         if (course == null) {
             throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
+            // Hacer try catch para controlar excepcion
         }
 
         return course.toString();
@@ -352,6 +355,7 @@ public class Utilities {
 
         if (student == null) {
             throw new IllegalArgumentException("No existe el estudiante con ID (" + studentID + ") o está mal escrito");
+            // Hacer try catch para controlar excepcion
         }
 
         return student.toString();
@@ -386,6 +390,7 @@ public class Utilities {
 
         if (teacher == null) {
             throw new IllegalArgumentException("No existe el profesor con ID (" + teacherID + ") o está mal escrito");
+            // Hacer try catch para controlar excepcion
         }
 
         return teacher.toString();
@@ -415,6 +420,9 @@ public class Utilities {
         return totalEarned - totalSalaries;
 
     }
+
+    //  ¡¡¡ ATENCIÓN !!!  Hacer metodos TRY CATCH para que el programa no crashee cuando en el Scanner metemos datos errones (Enter Int Output String)
+
 
     //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
     public static void createTeacher(List<Teacher> teachers) throws InputMismatchException{
