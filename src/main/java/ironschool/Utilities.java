@@ -425,51 +425,96 @@ public class Utilities {
 
 
     //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
-    public static void createTeacher(List<Teacher> teachers) throws InputMismatchException{
+    public static void createTeacher(List<Teacher> teachers) throws InputMismatchException {
 
         Scanner scanner = new Scanner(System.in);
+        int numTeachers;
+
+
         System.out.println("How many teacher do you want?");
-        int numTeachers = scanner.nextInt();
+        while (true){
+            if(!scanner.hasNextInt()){
+                System.out.println("Introduce un valor numerico");
+                scanner.next();
+            }else{
+                numTeachers = scanner.nextInt();
+                break;
+            }
+        }
 
         for (int i = 0; i < numTeachers; i++) {
             scanner = new Scanner(System.in);
-            System.out.println("Enter the Teacher's name");
+            System.out.println("Enter the Teacher's name " + (i + 1));
             String name = scanner.nextLine();
             System.out.println("Enter the Teacher's salary");
-            double salary = scanner.nextDouble();
-            teachers.add(new Teacher(name,salary));
+            while(true){
+                if(!scanner.hasNextDouble()){
+                    System.out.println("Introduce un valor numerico");
+                    scanner.next();
+                }else{
+                    double salary = scanner.nextDouble();
+                    teachers.add(new Teacher(name, salary));
+                    break;
+                }
+            }
         }
 
     }
-    //METODO CREACION DE CURSOS ENTRANDO POR TECLADO LOS PARAMETROS
-    public static void createCourses(List<Course> courses) throws InputMismatchException{
 
+    //METODO CREACION DE CURSOS ENTRANDO POR TECLADO LOS PARAMETROS
+    public static void createCourses(List<Course> courses) throws InputMismatchException {
 
         Scanner scanner = new Scanner(System.in);
+        int numCourses;
+
         System.out.println("How many courses do you want?");
-        int numCourses = scanner.nextInt();
+        while (true){
+            if(!scanner.hasNextInt()){
+                System.out.println("Introduce un valor numerico");
+                scanner.next();
+            }else{
+                numCourses = scanner.nextInt();
+                break;
+            }
+        }
 
         for (int i = 0; i < numCourses; i++) {
             scanner = new Scanner(System.in);
-            System.out.println("Enter the Course's name");
+            System.out.println("Enter the Course's name " + (i+1));
             String name = scanner.nextLine();
             System.out.println("Enter the price of this course ");
-            double price = scanner.nextDouble();
-            courses.add(new Course(name,price));
+            while (true){
+                if(!scanner.hasNextDouble()){
+                    System.out.println("Introduce un valor numerico");
+                    scanner.next();
+                }else{
+                    double price = scanner.nextDouble();
+                    courses.add(new Course(name, price));
+                    break;
+                }
+            }
         }
-
     }
+
     //METODO CREACION DE ESTUDIANTES ENTRANDO POR TECLADO LOS PARAMETROS
     public static void createStudent(List<Student> students) throws InputMismatchException {
 
-
         Scanner scanner = new Scanner(System.in);
+        int numStudents;
         System.out.println("How many students do you want?");
-        int numStudents = scanner.nextInt();
+        while (true){
+            if(!scanner.hasNextInt()){
+                System.out.println("Introduce un valor numerico");
+                scanner.next();
+            }else{
+                numStudents = scanner.nextInt();
+                break;
+            }
+        }
 
         for (int i = 0; i < numStudents; i++) {
             scanner = new Scanner(System.in);
-            System.out.println("Enter the Student's name");
+            System.out.println("Enter the Student's name " +(i+1));
             String name = scanner.nextLine();
             System.out.println("Enter the adress of the Student ");
             String adress = scanner.nextLine();

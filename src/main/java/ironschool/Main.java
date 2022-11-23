@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //tempMethodToTestFunctionalities();
-        //setUpSchool();
+        tempMethodToTestFunctionalities();
+        setUpSchool();
         //callMenu();
 
         Course courseDAM = new Course("DAM", 380);
@@ -184,7 +184,7 @@ public class Main {
         teacherList = new ArrayList<>();
         studentList = new ArrayList<>();
 
-        Teacher teacher = new Teacher("Jose", 2000);
+      /*  Teacher teacher = new Teacher("Jose", 2000);
         Teacher teacher1 = new Teacher("Josefa", 1000);
         Student student = new Student("St", "email@email.com", "en la calle, 69");
         Student student1 = new Student("Stu", "email@email.org", "en la calle, 66");
@@ -206,12 +206,12 @@ public class Main {
 
         System.out.println(student);
         System.out.println(course1);
-
+*/
     }
 
     private static void setUpSchool() {
-        try {
 
+        try {
             //--------Falta implementar bucle While(TRUE)
             System.out.println("Type a name for the school: ");
             String name = sc.nextLine();
