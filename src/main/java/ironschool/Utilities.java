@@ -434,7 +434,7 @@ public class Utilities {
         System.out.println("How many teacher do you want?");
         while (true){
             if(!scanner.hasNextInt()){
-                System.out.println("Introduce un valor numerico");
+                System.err.println("Introduce un valor numerico");
                 scanner.next();
             }else{
                 numTeachers = scanner.nextInt();
@@ -449,7 +449,7 @@ public class Utilities {
             System.out.println("Enter the Teacher's salary");
             while(true){
                 if(!scanner.hasNextDouble()){
-                    System.out.println("Introduce un valor numerico");
+                    System.err.println("Introduce un valor numerico");
                     scanner.next();
                 }else{
                     double salary = scanner.nextDouble();
@@ -470,7 +470,7 @@ public class Utilities {
         System.out.println("How many courses do you want?");
         while (true){
             if(!scanner.hasNextInt()){
-                System.out.println("Introduce un valor numerico");
+                System.err.println("Introduce un valor numerico");
                 scanner.next();
             }else{
                 numCourses = scanner.nextInt();
@@ -485,7 +485,7 @@ public class Utilities {
             System.out.println("Enter the price of this course ");
             while (true){
                 if(!scanner.hasNextDouble()){
-                    System.out.println("Introduce un valor numerico");
+                    System.err.println("Introduce un valor numerico");
                     scanner.next();
                 }else{
                     double price = scanner.nextDouble();
@@ -504,7 +504,7 @@ public class Utilities {
         System.out.println("How many students do you want?");
         while (true){
             if(!scanner.hasNextInt()){
-                System.out.println("Introduce un valor numerico");
+                System.err.println("Introduce un valor numerico");
                 scanner.next();
             }else{
                 numStudents = scanner.nextInt();
