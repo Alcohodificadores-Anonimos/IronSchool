@@ -2,14 +2,22 @@ package ironschool;
 
 public class Course {
 
+    private static int idCounter;
     private String courseId;
+
     private String name;
     private double price;
     private double moneyEarned;
     private Teacher teacher;
 
     public Course(String name, double price) {
-        this.courseId = Utilities.generarIdRandom();
+        this.courseId = getIdCounterToString();
+        this.name = name;
+        this.price = price;
+    }
+
+    private Course(String courseId, String name, double price) {
+        this.courseId = courseId;
         this.name = name;
         this.price = price;
     }
@@ -54,8 +62,10 @@ public class Course {
         this.teacher = teacher;
     }
 
+
     @Override
     public String toString() {
+
         return "Course{" +
                 "courseId='" + courseId + '\'' +
                 ", name='" + name + '\'' +
@@ -63,5 +73,11 @@ public class Course {
                 ", moneyEarned=" + moneyEarned +
                 ", teacher=" + teacher +
                 '}';
+
     }
+
+    public String getIdCounterToString() {
+        return Integer.toString(idCounter++);
+    }
+
 }
