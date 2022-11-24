@@ -8,6 +8,9 @@ import java.util.Scanner;
 import static ironschool.Utilities.enrollStudentIntoCourse;
 
 public class Main {
+
+    // todo: Raul: OJO, CUANDO NOS PIDE EL NOMBRE DEL CURSO, SI LE METO UN STRING VACIO SE LA CUELO
+
     private static Scanner sc = new Scanner(System.in);
     public static List<Course> courseList;
     public static List<Student> studentList;
@@ -15,8 +18,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        tempMethodToTestFunctionalities();
-        setUpSchool();
+        //tempMethodToTestFunctionalities();
+        //setUpSchool();
         //callMenu();
 
         Course courseDAM = new Course("DAM", 380);
@@ -39,8 +42,6 @@ public class Main {
         teacherList = new ArrayList<>();
         studentList = new ArrayList<>();
 
-        //---RAUL---COMPROBACIONES MÉTODO [ENROLL] enrollStudentIntoCourse()---
-
         courseList.add(courseDAM);
         courseList.add(courseASIX);
         courseList.add(courseDAW);
@@ -57,11 +58,23 @@ public class Main {
         studentList.add(studentEdu);
         studentList.add(studentRaul);
 
+        //---RAUL---COMPROBACIONES MÉTODO [ENROLL] enrollStudentIntoCourse()---
+
+        System.out.println("\nALUMNO SIN NINGÚN CURSO ASIGNADO");
+
         System.out.println(studentCristian + "\n" + courseDAW);
 
         enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAW.getCourseId());
 
         System.out.println(studentCristian + "\n" + courseDAW);
+
+        System.out.println("AÑADIMOS UN CURSO CON EL MISMO CURSO ASIGNADO");
+
+        enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAW.getCourseId());
+
+        System.out.println("\nAÑADIMOS UN ALUMNO ASIGNÁNDOLE UN NUEVO CURSO");
+
+        enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAM.getCourseId());
 
         //---------------------------------------------------------------------
 
