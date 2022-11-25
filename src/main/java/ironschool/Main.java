@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         //tempMethodToTestFunctionalities();
-        //setUpSchool();
+        setUpSchool();
         //callMenu();
 
         Course courseDAM = new Course("DAM", 380);
