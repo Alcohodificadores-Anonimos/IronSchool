@@ -11,43 +11,9 @@ public class Utilities {
 
     private static Scanner scanner;
 
-    //todo: MANU: Yo creare metodo crear teacher
-
-    //todo: RAUL: Cuando se cree un alumno, en el construcor, poner que se añada a la lista de alumnos para que ya
-    // pertenezca a la lista automaticamente
-
     public static String generarIdRandom() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
+        return UUID.randomUUID().toString();
     }
-
-    //ENROLL [STUDENT_ID] [COURSE_ID]:
-    // This command will help enroll the student specified in the corresponding course.
-    // While also updating the money_earned of that course based on its price
-
-    //Método para inscribir un alumno a un curso
-    /*public static void enrollStudentIntoCourse(Student student, Course course) {
-
-        //todo: Mirar crear una clase escuela
-
-        //todo: Mirar crear una clase escuela y recorrerlo con Map
-
-        //Comprobamos que el estudiante no esté ya inscrito en un curso
-        if (student.getCourse() == null) {
-
-            //Le asignamos el curso al estudiante
-            student.setCourse(course);
-
-            //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
-            course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
-
-        } else {
-
-            throw new IllegalArgumentException("El estudiante ya esta inscrito en un curso!");
-
-        }
-
-    }*/
 
     public static void commands(String command) {
 
@@ -87,8 +53,6 @@ public class Utilities {
 
         int option;
 
-        //todo: RAUL: preguntar a los profes si las listas tienen que ser staticas y publicas para poder acceder desde la clase Utilities
-
         //Buscamos si el ID del estudiante introducido existe en la lista de estudiantes
         for (Student studentElement : Main.studentList) {
 
@@ -99,6 +63,12 @@ public class Utilities {
 
         }
 
+        //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
+        if (student == null) {
+            System.err.println("No existe el alumno con ID (" + studentID + ") o está mal escrito, volviendo al menú principal.");
+            return;
+        }
+
         //Buscamos si el ID del curso introducido existe en la lista de cursos
         for (Course courseElement : Main.courseList) {
 
@@ -107,12 +77,6 @@ public class Utilities {
                 break;
             }
 
-        }
-
-        //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
-        if (student == null) {
-            System.err.println("No existe el alumno con ID (" + studentID + ") o está mal escrito, volviendo al menú principal.");
-            return;
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
@@ -196,8 +160,6 @@ public class Utilities {
         Teacher teacher = null;
         Course course = null;
 
-        // int option;
-
         //Buscamos si el ID del profesor introducido existe en la lista de profesores
         for (Teacher teacherElement : Main.teacherList) {
 
@@ -208,6 +170,12 @@ public class Utilities {
 
         }
 
+        //Si el profesor no existe o el ID está mal escrito, lanzamos una exception
+        if (teacher == null) {
+            System.err.println("No existe el profesor con ID (" + teacherID + ") o está mal escrito, volviendo al menú principal.");
+            return;
+        }
+
         //Buscamos si el ID del curso introducido existe en la lista de cursos
         for (Course courseElement : Main.courseList) {
 
@@ -216,12 +184,6 @@ public class Utilities {
                 break;
             }
 
-        }
-
-        //Si el profesor no existe o el ID está mal escrito, lanzamos una exception
-        if (teacher == null) {
-            System.err.println("No existe el profesor con ID (" + teacherID + ") o está mal escrito, volviendo al menú principal.");
-            return;
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
@@ -239,48 +201,6 @@ public class Utilities {
                         "), volviendo al menú.");
                 return;
             }
-
-            //todo: RAUL: Creo que esto sobra ya que un profesor puede estar en más de un curso asignado
-
-            /*//Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
-            System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor está asignado en un curso, quieres sobreescribir" +
-                    " el curso actual (" + "AAAAA" + ") por el curso nuevo (" + course.getName()
-                    + ")? (1.Si | 2.No)");
-
-            //Validamos que la opción introducida sea correcta
-            while (true) {
-
-                if (!scanner.hasNextInt()) {
-
-                    System.out.println("Introduce un valor válido! (1.Si | 2.No)");
-                    scanner.next();
-
-                } else {
-
-                    option = scanner.nextInt();
-
-                    if (option == 1 || option == 2) break;
-                    else System.out.println("Opción incorrecta! (1.Si | 2.No)");
-
-                }
-
-            }
-
-            //Si es 1, actualizamos el curso, si no (opción 2), no lo actualizamos
-            if (option == 1) {
-
-                //Le asignamos el profesor al curso
-                course.setTeacher(teacher);
-
-                System.out.println("\n\tProfesor actualizado correctamente! Volviendo al menú principal.");
-
-            } else {
-
-                System.out.println("\n\tCurso no actualizado. Volviendo al menú principal.");
-
-            }
-
-            return;*/
 
         }
 
@@ -386,8 +306,6 @@ public class Utilities {
         double totalEarned = 0;
         double totalSalaries = 0;
 
-        //todo: RAUL: Si el salario es mayor a lo recaudado, devolvemos un valor negativo o 0?
-
         for (Course course : courseList) {
             totalEarned += course.getMoneyEarned();
         }
@@ -409,7 +327,7 @@ public class Utilities {
         System.out.println("How many teacher do you want?");
         while (true) {
             if (!scanner.hasNextInt()) {
-                System.err.println("Introduce un valor numerico");
+                System.err.println("Introduce un valor numérico");
                 scanner.next();
             } else {
                 numTeachers = scanner.nextInt();
@@ -445,7 +363,7 @@ public class Utilities {
         System.out.println("How many courses do you want?");
         while (true) {
             if (!scanner.hasNextInt()) {
-                System.err.println("Introduce un valor numerico");
+                System.err.println("Introduce un valor numérico");
                 scanner.next();
             } else {
                 numCourses = scanner.nextInt();

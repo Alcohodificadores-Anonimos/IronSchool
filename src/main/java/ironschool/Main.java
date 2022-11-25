@@ -12,9 +12,9 @@ public class Main {
     // todo: Raul: OJO, CUANDO NOS PIDE EL NOMBRE DEL CURSO, SI LE METO UN STRING VACIO SE LA CUELO
 
     private static Scanner sc = new Scanner(System.in);
-    public static List<Course> courseList;
-    public static List<Student> studentList;
-    public static List<Teacher> teacherList;
+    public static List<Course> courseList = new ArrayList<>();
+    public static List<Student> studentList = new ArrayList<>();
+    public static List<Teacher> teacherList = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -168,6 +168,4 @@ public class Main {
                 """);
     }
 
-
 }
-
