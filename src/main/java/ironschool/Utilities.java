@@ -11,70 +11,73 @@ public class Utilities {
 
     private static Scanner scanner;
 
-    //todo: MANU: Yo creare metodo crear teacher
-
-    //todo: RAUL: Cuando se cree un alumno, en el construcor, poner que se añada a la lista de alumnos para que ya
-    // pertenezca a la lista automaticamente
 
     public static String generarIdRandom() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
 
-    //ENROLL [STUDENT_ID] [COURSE_ID]:
-    // This command will help enroll the student specified in the corresponding course.
-    // While also updating the money_earned of that course based on its price
+    public static void callMenu() {
 
-    //Método para inscribir un alumno a un curso
-    /*public static void enrollStudentIntoCourse(Student student, Course course) {
-
-        //todo: Mirar crear una clase escuela
-
-        //todo: Mirar crear una clase escuela y recorrerlo con Map
-
-        //Comprobamos que el estudiante no esté ya inscrito en un curso
-        if (student.getCourse() == null) {
-
-            //Le asignamos el curso al estudiante
-            student.setCourse(course);
-
-            //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
-            course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
-
-        } else {
-
-            throw new IllegalArgumentException("El estudiante ya esta inscrito en un curso!");
-
+        boolean off = true;
+        while(off){
+            printMenu();
+            Scanner scanner = new Scanner(System.in);
+            String command = scanner.nextLine(); //throw new NumberFormatException("test");
+            String subCommand1 = command.split(" ")[0];
+            String subCommand2 = command.split(" ")[1];
+            String subCommand3 = command.split(" ")[2];
+            switch (subCommand1) {
+                case "ENROLL": //Enroll
+                    enrollStudentIntoCourse(subCommand2, subCommand3);
+                    break;
+                case "ASSIGN": //Assign
+                    assignTeacherIntoCourse(subCommand2,subCommand3);
+                    break;
+                case "SHOW COURSES": //Courses
+                    System.out.println(showAllCourses());
+                    break;
+                case "LOOKUP COURSE": //Course
+                    lookupCourse(subCommand1);
+                    break;
+                case "SHOW STUDENTS": //Students
+                    System.out.println(showAllStudents());
+                    break;
+                case "LOOKUP STUDENT": //Student
+                    lookupStudent(subCommand1);
+                    break;
+                case "SHOW TEACHERS": //Teachers
+                    System.out.println(showAllTeachers());
+                    break;
+                case "LOOKUP TEACHER": //Teacher
+                    lookupTeacher(subCommand1);
+                    break;
+                case "SHOW PROFIT": //Profit
+                  //  System.out.println(showProfitFromAllCourses());
+                    break;
+                case "EXIT": //Profit
+                    off= false;
+                    break;
+                default:
+                    System.out.println("Introduce un comando valido");
+                    break;
+            }
         }
 
-    }*/
+    }
 
-    public static void commands(String command) {
-
-        //command -> ENROLL 1 2
-        //command2 -> ENROLL
-        //studentID -> 1
-        //courseID -> 2
-
-        String command2 = command.split(" ")[0].toUpperCase();
-        String studentID = command.split(" ")[1].toUpperCase();
-        String courseID = command.split(" ")[2].toUpperCase();
-
-        switch (command2) {
-
-            case "ENROLL":
-
-                enrollStudentIntoCourse(studentID, courseID);
-
-                break;
-
-            case "ASSIGN":
-
-                break;
-
-        }
-
-
+    public static void printMenu() {
+        System.out.println("""
+                1) Enroll student to a course
+                2) Assign teacher to a course
+                3) Show courses
+                4) Lookup course
+                5) Show students
+                6) Lookup student
+                7) Show teachers
+                8) Lookup teacher
+                9) Show profit
+                """);
     }
 
     //Método para inscribir un alumno a un curso mediante sus IDs
@@ -186,9 +189,6 @@ public class Utilities {
 
     }
 
-    //ASSIGN [TEACHER_ID] [COURSE_ID]:
-    // This command will help assign the teacher specified to the corresponding course
-
     //Método para asignar un profesor a un curso mediante sus IDs
     public static void assignTeacherIntoCourse(String teacherID, String courseID) {
 
@@ -293,15 +293,12 @@ public class Utilities {
 
     }
 
-    //SHOW COURSES: This command will display a list of all courses
 
     //Método para enseñar todos los cursos
     public static List<Course> showAllCourses() {
         return Main.courseList;
     }
 
-    //LOOKUP COURSE [COURSE_ID]:
-    // This command will display the full details of the specified course
 
     //Método para enseñar toda la información de un curso mediante su ID
     public static String lookupCourse(String courseID) {
@@ -327,16 +324,12 @@ public class Utilities {
 
     }
 
-    //SHOW STUDENTS:
-    // This command will display a list of all students
 
     //Método para enseñar todos los estudiantes
     public static List<Student> showAllStudents() {
         return Main.studentList;
     }
 
-    //LOOKUP STUDENT [STUDENT_ID]:
-    // This command will display the full details of the specified student
 
     //Método para enseñar toda la información de un estudiante mediante su ID
     public static String lookupStudent(String studentID) {
@@ -362,16 +355,12 @@ public class Utilities {
 
     }
 
-    //SHOW TEACHERS:
-    // This command will display a list of all teachers
 
     //Método para enseñar todos los profesores
     public static List<Teacher> showAllTeachers() {
         return Main.teacherList;
     }
 
-    //LOOKUP TEACHER [TEACHER_ID]:
-    // This command will display the full details of the specified teacher
 
     //Método para enseñar toda la información de un profesor mediante su ID
     public static String lookupTeacher(String teacherID) {
@@ -397,10 +386,6 @@ public class Utilities {
 
     }
 
-    //SHOW PROFIT:
-    // This command will calculate
-    // (The total money earned from all courses) - (The sum of all the teachers’ salaries) and return the result
-
     //Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
     public static double showProfitFromAllCourses(List<Course> courseList, List<Teacher> teacherList) {
 
@@ -420,8 +405,6 @@ public class Utilities {
         return totalEarned - totalSalaries;
 
     }
-
-    //  ¡¡¡ ATENCIÓN !!!  Hacer metodos TRY CATCH para que el programa no crashee cuando en el Scanner metemos datos errones (Enter Int Output String)
 
 
     //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
