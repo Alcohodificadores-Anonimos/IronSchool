@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static ironschool.Utilities.enrollStudentIntoCourse;
 
 public class Main {
+<<<<<<< Updated upstream
 
     // todo: Raul: OJO, CUANDO NOS PIDE EL NOMBRE DEL CURSO, SI LE METO UN STRING VACIO SE LA CUELO
 
@@ -123,5 +124,14 @@ public class Main {
 
 
 
+=======
+    public static void main(String[] args) {
+
+        Utilities.tempMethodToTestFunctionalities();
+        Utilities.setUpSchool();
+        Utilities.callMenu();
+    }
+
+>>>>>>> Stashed changes
 }
 
