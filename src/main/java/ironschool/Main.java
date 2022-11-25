@@ -8,19 +8,20 @@ import java.util.Scanner;
 import static ironschool.Utilities.enrollStudentIntoCourse;
 
 public class Main {
+<<<<<<< Updated upstream
 
     // todo: Raul: OJO, CUANDO NOS PIDE EL NOMBRE DEL CURSO, SI LE METO UN STRING VACIO SE LA CUELO
 
     private static Scanner sc = new Scanner(System.in);
-    public static List<Course> courseList = new ArrayList<>();
-    public static List<Student> studentList = new ArrayList<>();
-    public static List<Teacher> teacherList = new ArrayList<>();
+    public static List<Course> courseList;
+    public static List<Student> studentList;
+    public static List<Teacher> teacherList;
 
     public static void main(String[] args) {
 
-        tempMethodToTestFunctionalities();
+        //tempMethodToTestFunctionalities();
         setUpSchool();
-        Utilities.callMenu();
+        //callMenu();
 
         Course courseDAM = new Course("DAM", 380);
         Course courseASIX = new Course("ASIX", 250);
@@ -122,4 +123,15 @@ public class Main {
 
 
 
+
+=======
+    public static void main(String[] args) {
+
+        Utilities.tempMethodToTestFunctionalities();
+        Utilities.setUpSchool();
+        Utilities.callMenu();
+    }
+
+>>>>>>> Stashed changes
 }
+
