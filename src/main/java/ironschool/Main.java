@@ -120,53 +120,7 @@ public class Main {
         }
     }
 
-    private static void callMenu() {
-        printMenu();
-        int option = sc.nextInt(); //throw new NumberFormatException("test");
-        switch (option) {
-            case 1: //Enroll
-                //Utilities.enrollStudentIntoCourse(...);
-                break;
-            case 2: //Assign
-                //Utilities.assignTeacherIntoCourse(...);
-                break;
-            case 3: //Courses
-                //Utilities.showCourses(...);
-                break;
-            case 4: //Course
-                //Utilities.lookupCourse(...);
-                break;
-            case 5: //Students
-                //Utilities.showStudents(...);
-                break;
-            case 6: //Student
-                //Utilities.lookupStudent(...);
-                break;
-            case 7: //Teachers
-                //Utilities.showTeachers(...);
-                break;
-            case 8: //Teacher
-                //Utilities.lookupTeacher(...);
-                break;
-            case 9: //Profit
-                //Utilities.showProfit(...);
-                break;
-        }
-    }
 
-    private static void printMenu() {
-        System.out.println("""
-                1) Enroll student to a course
-                2) Assign teacher to a course
-                3) Show courses
-                4) Lookup course
-                5) Show students
-                6) Lookup student
-                7) Show teachers
-                8) Lookup teacher
-                9) Show profit
-                """);
-    }
 
 
 }

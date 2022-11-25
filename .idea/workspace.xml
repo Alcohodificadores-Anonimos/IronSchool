@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4824295d-753a-4102-aa44-d105a1822bd6" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/test/StudentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Main.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" afterDir="false" />
+>>>>>>> manu
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="manu" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
