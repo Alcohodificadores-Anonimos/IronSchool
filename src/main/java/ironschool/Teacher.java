@@ -1,13 +1,13 @@
 package ironschool;
 
 public class Teacher {
-
+    private static int idCounter;
     private String teacherId;
     private String name;
     private double salary;
 
     public Teacher(String name, double salary) {
-        this.teacherId = Utilities.generarIdRandom();
+        this.teacherId = String.valueOf(idCounter++);
         this.name = name;
         this.salary = salary;
     }

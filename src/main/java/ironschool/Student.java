@@ -1,7 +1,7 @@
 package ironschool;
 
 public class Student {
-
+    private static int idCounter;
     private String studentId;
     private String name;
     private String address;
@@ -9,7 +9,7 @@ public class Student {
     private Course course;
 
     public Student(String name, String address, String email) {
-        this.studentId = Utilities.generarIdRandom();
+        this.studentId = String.valueOf(idCounter++);
         this.name = name;
         this.address = address;
         this.email = email;
@@ -59,7 +59,7 @@ public class Student {
     public String toString() {
 
         return "Student{" +
-                "studenId='" + studentId + '\'' +
+                "studentId='" + studentId + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
