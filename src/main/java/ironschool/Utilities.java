@@ -12,15 +12,60 @@ public class Utilities {
     private static Scanner scanner;
 
     public static void callMenu() {
-
+        Scanner scanner;
+        String command;
+        String subCommand1 = "";
+        String subCommand2 = "";
+        String subCommand3 = "";
         boolean off = true;
+
         while(off){
+
             printMenu();
-            Scanner scanner = new Scanner(System.in);
-            String command = scanner.nextLine(); //throw new NumberFormatException("test");
-            String subCommand1 = command.split(" ")[0];
-            String subCommand2 = command.split(" ")[1];
-            String subCommand3 = command.split(" ")[2];
+            //Controlamos que no inserte un numero
+            scanner = new Scanner(System.in);
+            while (true) {
+                if (scanner.hasNextInt()) {
+                    System.err.println("Introduce un comando valido");
+                    scanner.nextLine();
+                }else{
+                    command = scanner.nextLine();
+                    break;
+                }
+            }
+            /*ERRORES
+            EJ:   (HOLA)(ENROLL11) si no pones dos espacios lo cual no rellena los subcommands. Controlar que command.split("").length sea = a 3
+                   (ENROLL 1 1 1) te lo deja poner pero no utiliza ninguno a partir del segundo numero.
+            */
+
+            String[] comandosSeparados = command.split(" ");
+
+            // Si ponemos 1, 2 o 3 palabras en el comando, esta bien, si no, no
+            if (comandosSeparados.length <= 3) {
+
+                switch (comandosSeparados.length) {
+
+                    case 1:
+                        subCommand1 = comandosSeparados[0];
+                        break;
+
+                    case 2:
+                        subCommand1 = comandosSeparados[0];
+                        subCommand2 = comandosSeparados[1];
+                        break;
+
+                    case 3:
+                        subCommand2 = comandosSeparados[1];
+                        subCommand3 = comandosSeparados[2];
+                        break;
+                }
+
+            }
+
+            /* subCommand1 = command.split(" ")[0];
+             subCommand2 = command.split(" ")[1];
+             subCommand3 = command.split(" ")[2];*/
+
             switch (subCommand1) {
                 case "ENROLL": //Enroll
                     enrollStudentIntoCourse(subCommand2, subCommand3);
@@ -47,7 +92,7 @@ public class Utilities {
                     lookupTeacher(subCommand1);
                     break;
                 case "SHOW PROFIT": //Profit
-                  //  System.out.println(showProfitFromAllCourses());
+                    //  System.out.println(showProfitFromAllCourses());
                     break;
                 case "EXIT": //Profit
                     off= false;
@@ -58,7 +103,7 @@ public class Utilities {
             }
         }
 
-        }
+    }
 
     public static void printMenu() {
         System.out.println("""

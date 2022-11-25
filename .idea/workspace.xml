@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4824295d-753a-4102-aa44-d105a1822bd6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Teacher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Utilities.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

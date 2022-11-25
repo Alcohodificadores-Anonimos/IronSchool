@@ -18,9 +18,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //tempMethodToTestFunctionalities();
+        tempMethodToTestFunctionalities();
         setUpSchool();
-        //callMenu();
+        Utilities.callMenu();
 
         Course courseDAM = new Course("DAM", 380);
         Course courseASIX = new Course("ASIX", 250);

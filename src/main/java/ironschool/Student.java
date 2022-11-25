@@ -1,7 +1,7 @@
 package ironschool;
 
 public class Student {
-    private Integer idCounter;
+    private static int idCounter;
     private String studentId;
     private String name;
     private String address;
