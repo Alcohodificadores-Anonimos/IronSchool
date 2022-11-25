@@ -11,12 +11,6 @@ public class Utilities {
 
     private static Scanner scanner;
 
-
-    public static String generarIdRandom() {
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
-    }
-
     public static void callMenu() {
 
         boolean off = true;
