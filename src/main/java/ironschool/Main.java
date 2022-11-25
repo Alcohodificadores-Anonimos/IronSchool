@@ -8,6 +8,9 @@ import java.util.Scanner;
 import static ironschool.Utilities.enrollStudentIntoCourse;
 
 public class Main {
+
+    // todo: Raul: OJO, CUANDO NOS PIDE EL NOMBRE DEL CURSO, SI LE METO UN STRING VACIO SE LA CUELO
+
     private static Scanner sc = new Scanner(System.in);
     public static List<Course> courseList;
     public static List<Student> studentList;
@@ -19,40 +22,6 @@ public class Main {
         //setUpSchool();
         //callMenu();
 
-        Teacher teacherJaume = new Teacher("Jaume", 2000);
-        Teacher teacherAlex = new Teacher("Alex", 2125);
-        Teacher teacherJose = new Teacher("Jose", 1985);
-        Teacher teacherJose2 = new Teacher("Jose", 1985);
-        Teacher teacherJose3 = new Teacher("Jose", 1985);
-        Teacher teacherJose4 = new Teacher("Jose", 1985);
-
-        System.out.println(teacherJaume);
-        System.out.println(teacherAlex);
-        System.out.println(teacherJose);
-        System.out.println(teacherJose2);
-        System.out.println(teacherJose3);
-        System.out.println(teacherJose4);
-
-        Course courseDAM = new Course("DAM", 380);
-        Course courseASIX = new Course("ASIX", 250);
-        Course courseDAW = new Course("DAW", 380);
-        Course courseInfirmary = new Course("Enfermería", 520);
-        Course courseCybersecurity = new Course("Ciberseguridad", 720);
-        System.out.println(courseDAM);
-        System.out.println(courseASIX);
-        System.out.println(courseDAW);
-        System.out.println(courseInfirmary);
-        System.out.println(courseCybersecurity);
-
-        Student studentCristian = new Student("Cristian", "C/ Falsa 123", "cristian@gmail.com");
-        Student studentXavi = new Student("Xavi", "Avenida ejemplo 46", "xavi@gmail.com");
-        Student studentManu = new Student("Manu", "C/ Caritg 12", "manu@gmail.com");
-        System.out.println(studentManu);
-        System.out.println(studentCristian);
-        System.out.println(studentXavi);
-
-
-        /*
         Course courseDAM = new Course("DAM", 380);
         Course courseASIX = new Course("ASIX", 250);
         Course courseDAW = new Course("DAW", 380);
@@ -73,8 +42,6 @@ public class Main {
         teacherList = new ArrayList<>();
         studentList = new ArrayList<>();
 
-        //---RAUL---COMPROBACIONES MÉTODO [ENROLL] enrollStudentIntoCourse()---
-
         courseList.add(courseDAM);
         courseList.add(courseASIX);
         courseList.add(courseDAW);
@@ -91,124 +58,6 @@ public class Main {
         studentList.add(studentEdu);
         studentList.add(studentRaul);
 
-        System.out.println(studentCristian + "\n" + courseDAW);
-
-        enrollStudentIntoCourse(studentCristian.getStudentId(), courseDAW.getCourseId());
-
-        System.out.println(studentCristian + "\n" + courseDAW);
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [ASSIGN] assignTeacherIntoCourse()---
-
-        System.out.println("\nCURSO SIN NINGÚN PROFESOR");
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
-
-        System.out.println("\nCURSO CON UN PROFESOR");
-
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
-
-        System.out.println("\nAÑADIMOS UN PROFESOR CON EL MISMO CURSO ASIGNADO");
-
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseDAM.getCourseId());
-
-        System.out.println("\n\t" + courseDAM);
-        System.out.println("\t" + teacherJaume);
-
-        System.out.println("\nAÑADIMOS UN PROFESOR ASIGNÁNDOLE UN NUEVO CURSO");
-
-        Utilities.assignTeacherIntoCourse(teacherJaume.getTeacherId(), courseASIX.getCourseId());
-
-        System.out.println("\n\t" + courseASIX);
-        System.out.println("\t" + teacherJaume);
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW COURSES] showAllCourses()---
-
-        System.out.println("\nNOMBRES DE TODOS LOS CURSOS:\n");
-
-        Utilities.showAllCourses().forEach(course -> System.out.println(course.getName()));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP COURSE] lookupCourse()---
-
-        System.out.println("\nBUSCAMOS CURSO POR ID QUE EXISTE:");
-
-        System.out.println("\n\t" + Utilities.lookupCourse(courseASIX.getCourseId()));
-
-        System.out.println("\nBUSCAMOS CURSO POR ID QUE NO EXISTE:");
-
-        //System.out.println("\n\t" + Utilities.lookupCourse("12345"));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW STUDENTS] showAllStudents()---
-
-        System.out.println("\nNOMBRES DE TODOS LOS ESTUDIANTES:\n");
-
-        Utilities.showAllStudents().forEach(studentElement -> System.out.println(studentElement.getName()));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP STUDENT] lookupStudent()---
-
-        System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE EXISTE:");
-
-        System.out.println("\n\t" + Utilities.lookupStudent(studentRaul.getStudentId()));
-
-        System.out.println("\nBUSCAMOS ESTUDIANTE POR ID QUE NO EXISTE:");
-
-        //System.out.println("\n\t" + Utilities.lookupStudent("12345"));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [SHOW TEACHERS] showAllStudents()---
-
-        System.out.println("\nNOMBRES DE TODOS LOS PROFESORES:\n");
-
-        Utilities.showAllTeachers().forEach(teacherElement -> System.out.println(teacherElement.getName()));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
-
-        System.out.println("\nBUSCAMOS PROFESOR POR ID QUE EXISTE:");
-
-        System.out.println("\n\t" + Utilities.lookupTeacher(teacherJaume.getTeacherId()));
-
-        System.out.println("\nBUSCAMOS PROFESOR POR ID QUE NO EXISTE:");
-
-        //System.out.println("\n\t" + Utilities.lookupTeacher("12345"));
-
-        //---------------------------------------------------------------------
-
-        //---RAUL---COMPROBACIONES MÉTODO [LOOKUP TEACHER] lookupTeacher()---
-
-        System.out.println("\nNOMBRES DE TODOS LOS PROFESORES + SALARIOS:");
-
-        Utilities.showAllTeachers().forEach(teacherElement -> {
-            System.out.println("\n\tNombre: " + teacherElement.getName() + " salario: " + teacherElement.getSalary());
-        });
-
-        System.out.println("\nNOMBRES DE TODOS LOS CURSOS + BENEFICIO RECAUDADO:");
-
-        Utilities.showAllCourses().forEach(courseElement -> {
-            System.out.println("\n\tNombre: " + courseElement.getName() + " beneficio recaudado: " + courseElement.getMoneyEarned());
-        });
-
-        System.out.println("\nBENEFICIO DE LOS CURSOS:");
-
-        System.out.println("\n\t" + Utilities.showProfitFromAllCourses(courseList, teacherList));
-
-        //---------------------------------------------------------------------
-*/
     }
 
     // Test method for functionalities to implement later on
@@ -271,53 +120,7 @@ public class Main {
         }
     }
 
-    private static void callMenu() {
-        printMenu();
-        int option = sc.nextInt(); //throw new NumberFormatException("test");
-        switch (option) {
-            case 1: //Enroll
-                //Utilities.enrollStudentIntoCourse(...);
-                break;
-            case 2: //Assign
-                //Utilities.assignTeacherIntoCourse(...);
-                break;
-            case 3: //Courses
-                //Utilities.showCourses(...);
-                break;
-            case 4: //Course
-                //Utilities.lookupCourse(...);
-                break;
-            case 5: //Students
-                //Utilities.showStudents(...);
-                break;
-            case 6: //Student
-                //Utilities.lookupStudent(...);
-                break;
-            case 7: //Teachers
-                //Utilities.showTeachers(...);
-                break;
-            case 8: //Teacher
-                //Utilities.lookupTeacher(...);
-                break;
-            case 9: //Profit
-                //Utilities.showProfit(...);
-                break;
-        }
-    }
 
-    private static void printMenu() {
-        System.out.println("""
-                1) Enroll student to a course
-                2) Assign teacher to a course
-                3) Show courses
-                4) Lookup course
-                5) Show students
-                6) Lookup student
-                7) Show teachers
-                8) Lookup teacher
-                9) Show profit
-                """);
-    }
 
 
 }

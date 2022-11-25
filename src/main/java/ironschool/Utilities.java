@@ -11,70 +11,73 @@ public class Utilities {
 
     private static Scanner scanner;
 
-    //todo: MANU: Yo creare metodo crear teacher
-
-    //todo: RAUL: Cuando se cree un alumno, en el construcor, poner que se añada a la lista de alumnos para que ya
-    // pertenezca a la lista automaticamente
 
     public static String generarIdRandom() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
 
-    //ENROLL [STUDENT_ID] [COURSE_ID]:
-    // This command will help enroll the student specified in the corresponding course.
-    // While also updating the money_earned of that course based on its price
+    public static void callMenu() {
 
-    //Método para inscribir un alumno a un curso
-    /*public static void enrollStudentIntoCourse(Student student, Course course) {
-
-        //todo: Mirar crear una clase escuela
-
-        //todo: Mirar crear una clase escuela y recorrerlo con Map
-
-        //Comprobamos que el estudiante no esté ya inscrito en un curso
-        if (student.getCourse() == null) {
-
-            //Le asignamos el curso al estudiante
-            student.setCourse(course);
-
-            //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
-            course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
-
-        } else {
-
-            throw new IllegalArgumentException("El estudiante ya esta inscrito en un curso!");
+        boolean off = true;
+        while(off){
+            printMenu();
+            Scanner scanner = new Scanner(System.in);
+            String command = scanner.nextLine(); //throw new NumberFormatException("test");
+            String subCommand1 = command.split(" ")[0];
+            String subCommand2 = command.split(" ")[1];
+            String subCommand3 = command.split(" ")[2];
+            switch (subCommand1) {
+                case "ENROLL": //Enroll
+                    enrollStudentIntoCourse(subCommand2, subCommand3);
+                    break;
+                case "ASSIGN": //Assign
+                    assignTeacherIntoCourse(subCommand2,subCommand3);
+                    break;
+                case "SHOW COURSES": //Courses
+                    System.out.println(showAllCourses());
+                    break;
+                case "LOOKUP COURSE": //Course
+                    lookupCourse(subCommand1);
+                    break;
+                case "SHOW STUDENTS": //Students
+                    System.out.println(showAllStudents());
+                    break;
+                case "LOOKUP STUDENT": //Student
+                    lookupStudent(subCommand1);
+                    break;
+                case "SHOW TEACHERS": //Teachers
+                    System.out.println(showAllTeachers());
+                    break;
+                case "LOOKUP TEACHER": //Teacher
+                    lookupTeacher(subCommand1);
+                    break;
+                case "SHOW PROFIT": //Profit
+                  //  System.out.println(showProfitFromAllCourses());
+                    break;
+                case "EXIT": //Profit
+                    off= false;
+                    break;
+                default:
+                    System.out.println("Introduce un comando valido");
+                    break;
+            }
+        }
 
         }
 
-    }*/
-
-    public static void commands(String command) {
-
-        //command -> ENROLL 1 2
-        //command2 -> ENROLL
-        //studentID -> 1
-        //courseID -> 2
-
-        String command2 = command.split(" ")[0].toUpperCase();
-        String studentID = command.split(" ")[1].toUpperCase();
-        String courseID = command.split(" ")[2].toUpperCase();
-
-        switch (command2) {
-
-            case "ENROLL":
-
-                enrollStudentIntoCourse(studentID, courseID);
-
-                break;
-
-            case "ASSIGN":
-
-                break;
-
-        }
-
-
+    public static void printMenu() {
+        System.out.println("""
+                1) Enroll student to a course
+                2) Assign teacher to a course
+                3) Show courses
+                4) Lookup course
+                5) Show students
+                6) Lookup student
+                7) Show teachers
+                8) Lookup teacher
+                9) Show profit
+                """);
     }
 
     //Método para inscribir un alumno a un curso mediante sus IDs
@@ -111,14 +114,14 @@ public class Utilities {
 
         //Si el alumno no existe o el ID está mal escrito, lanzamos una exception
         if (student == null) {
-            throw new IllegalArgumentException("No existe el alumno con ID (" + studentID + ") o está mal escrito");
-            //Hacer un try catch para la excepcion
+            System.err.println("No existe el alumno con ID (" + studentID + ") o está mal escrito, volviendo al menú principal.");
+            return;
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
         if (course == null) {
-            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
-            //Hacer un try catch para la excepcion
+            System.err.println("No existe el curso con ID (" + courseID + ") o está mal escrito, volviendo al menú principal.");
+            return;
         }
 
         //Comprobamos que el estudiante no esté ya inscrito en un curso
@@ -126,7 +129,7 @@ public class Utilities {
 
             //Si el curso que estemos añadiendo es el mismo que ya tiene asignado, saltamos el proceso y no lo cobramos
             if (student.getCourse().getName().equals(course.getName())) {
-                System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante ya estába inscrito en el curso (" + course.getName() +
+                System.out.println("\n\t¡ATENCIÓN!\n\tEl estudiante ya estaba inscrito en el curso (" + course.getName() +
                         "), volviendo al menú.");
                 return;
             }
@@ -164,7 +167,8 @@ public class Utilities {
                 //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
                 course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
 
-                System.out.println("\n\tCurso actualizado! Volviendo al menú principal.");
+                System.out.println("\n\tCurso actualizado! Nombre del nuevo curso: (" + course.getName() + ") " +
+                        "Volviendo al menú principal.");
 
             } else {
 
@@ -182,12 +186,10 @@ public class Utilities {
         //Actualizamos el dinero que tenga del curso sumándole lo que ha costado el curso
         course.setMoneyEarned(course.getMoneyEarned() + course.getPrice());
 
-        System.out.println("\n\tCurso nuevo añadido! Volviendo al menú principal.");
+        System.out.println("\n\tNuevo estudiante (" + student.getName() + ") añadido al curso (" + course.getName() + "). " +
+                "Volviendo al menú principal");
 
     }
-
-    //ASSIGN [TEACHER_ID] [COURSE_ID]:
-    // This command will help assign the teacher specified to the corresponding course
 
     //Método para asignar un profesor a un curso mediante sus IDs
     public static void assignTeacherIntoCourse(String teacherID, String courseID) {
@@ -197,10 +199,7 @@ public class Utilities {
         Teacher teacher = null;
         Course course = null;
 
-        int option;
-
-        //todo: RAUL: En la clase teacher he creado la variable Course sin setter para comprobar el curso del teacher,
-        //esta bien eso?
+        // int option;
 
         //Buscamos si el ID del profesor introducido existe en la lista de profesores
         for (Teacher teacherElement : Main.teacherList) {
@@ -224,12 +223,14 @@ public class Utilities {
 
         //Si el profesor no existe o el ID está mal escrito, lanzamos una exception
         if (teacher == null) {
-            throw new IllegalArgumentException("No existe el profesor con ID (" + teacherID + ") o está mal escrito");
+            System.err.println("No existe el profesor con ID (" + teacherID + ") o está mal escrito, volviendo al menú principal.");
+            return;
         }
 
         //Si el curso no existe o el ID está mal escrito, lanzamos una exception
         if (course == null) {
-            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
+            System.err.println("No existe el curso con ID (" + courseID + ") o está mal escrito, volviendo al menú principal.");
+            return;
         }
 
         //Comprobamos que el profesor no esté ya asignado en un curso
@@ -242,7 +243,7 @@ public class Utilities {
                 return;
             }
 
-            //todo: RAUL: Creo que esto sobra ya que un profesor puede estar en mas de un curso asignado
+            //todo: RAUL: Creo que esto sobra ya que un profesor puede estar en más de un curso asignado
 
             /*//Si no está asignado a ningún curso, preguntamos al usuario que quiere hacer (1. Sobreescribir, 2. No)
             System.out.println("\n\t¡ATENCIÓN!\n\tEl profesor está asignado en un curso, quieres sobreescribir" +
@@ -289,7 +290,8 @@ public class Utilities {
         //Le asignamos el profesor al curso
         course.setTeacher(teacher);
 
-        System.out.println("\n\tProfesor asignado correctamente! Volviendo al menú principal.");
+        System.out.println("\n\tNuevo profesor (" + teacher.getName() + ") asignado al curso (" + course.getName() + ")." +
+                "Volviendo al menú principal.");
 
     }
 
@@ -319,8 +321,8 @@ public class Utilities {
         }
 
         if (course == null) {
-            throw new IllegalArgumentException("No existe el curso con ID (" + courseID + ") o está mal escrito");
-            // Hacer try catch para controlar excepcion
+            System.err.println("No existe el curso con ID (" + courseID + ") o está mal escrito. Volviendo al menú principal.");
+            return null;
         }
 
         return course.toString();
@@ -354,8 +356,8 @@ public class Utilities {
         }
 
         if (student == null) {
-            throw new IllegalArgumentException("No existe el estudiante con ID (" + studentID + ") o está mal escrito");
-            // Hacer try catch para controlar excepcion
+            System.err.println("No existe el estudiante con ID (" + studentID + ") o está mal escrito. Volviendo al menú principal.");
+            return null;
         }
 
         return student.toString();
@@ -389,8 +391,8 @@ public class Utilities {
         }
 
         if (teacher == null) {
-            throw new IllegalArgumentException("No existe el profesor con ID (" + teacherID + ") o está mal escrito");
-            // Hacer try catch para controlar excepcion
+            System.err.println("No existe el profesor con ID (" + teacherID + ") o está mal escrito. Volviendo al menú principal.");
+            return null;
         }
 
         return teacher.toString();
@@ -498,6 +500,8 @@ public class Utilities {
 
     //METODO CREACION DE ESTUDIANTES ENTRANDO POR TECLADO LOS PARAMETROS
     public static void createStudent(List<Student> students) throws InputMismatchException {
+
+        //todo: Raul: OJO! QUE PASA SI EL USUARIO METE UN NOMBRE VACÍO?
 
         Scanner scanner = new Scanner(System.in);
         int numStudents;
