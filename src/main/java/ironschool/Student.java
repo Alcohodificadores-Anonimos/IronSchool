@@ -9,7 +9,7 @@ public class Student {
     private Course course;
 
     public Student(String name, String address, String email) {
-        this.studentId = getIdCounterToString();
+        this.studentId = String.valueOf(idCounter++);
         this.name = name;
         this.address = address;
         this.email = email;
@@ -63,7 +63,7 @@ public class Student {
     public String toString() {
 
         return "Student{" +
-                "studenId='" + studentId + '\'' +
+                "studentId='" + studentId + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +

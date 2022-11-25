@@ -7,7 +7,7 @@ public class Teacher {
     private double salary;
 
     public Teacher(String name, double salary) {
-        this.teacherId = getIdCounterToString();
+        this.teacherId = String.valueOf(idCounter++);
         this.name = name;
         this.salary = salary;
     }

@@ -10,7 +10,7 @@ public class Course {
     private Teacher teacher;
 
     public Course(String name, double price) {
-        this.courseId = getIdCounterToString();
+        this.courseId = String.valueOf(idCounter++);
         this.name = name;
         this.price = price;
     }
