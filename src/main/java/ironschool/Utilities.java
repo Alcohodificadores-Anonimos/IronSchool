@@ -67,18 +67,14 @@ public class Utilities {
             */
 
             String[] comandosSeparados = command.split(" ");
+            subCommand1 = comandosSeparados[0];
 
             // Si ponemos 1, 2 o 3 palabras en el comando, esta bien, si no, no
             if (comandosSeparados.length <= 3) {
 
                 switch (comandosSeparados.length) {
 
-                    case 1:
-                        subCommand1 = comandosSeparados[0];
-                        break;
-
                     case 2:
-                        subCommand1 = comandosSeparados[0];
                         subCommand2 = comandosSeparados[1];
                         break;
 
