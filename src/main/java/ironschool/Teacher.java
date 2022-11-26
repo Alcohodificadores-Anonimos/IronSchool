@@ -29,7 +29,7 @@ public class Teacher {
     }
 
     public void setName(String name) {
-       this.name = name;
+        this.name = name;
     }
 
     public double getSalary() {
@@ -45,7 +45,7 @@ public class Teacher {
         return "Teacher{" +
                 "teacherId='" + teacherId + '\'' +
                 ", name='" + name + '\'' +
-                ", salary=" + salary +
+                ", salary=" + salary +'\''+
                 '}';
     }
 

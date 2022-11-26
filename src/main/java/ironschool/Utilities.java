@@ -104,7 +104,7 @@ public class Utilities {
                         case "COURSES" -> System.out.println(showAllCourses());
                         case "STUDENTS" -> System.out.println(showAllStudents());
                         case "TEACHERS" -> System.out.println(showAllTeachers());
-                        case "PROFIT" -> System.err.println("IMPLEMENTA METODO showProfitFromAllCourses()");
+                        case "PROFIT" -> System.err.println(showProfitFromAllCourses(courseList,teacherList));
                         default -> System.err.println("Introduce un comando valido");
                     }
                     break;
@@ -129,15 +129,16 @@ public class Utilities {
 
     public static void printMenu() {
         System.out.println("""
-                1) Enroll student to a course
-                2) Assign teacher to a course
-                3) Show courses
-                4) Lookup course
-                5) Show students
-                6) Lookup student
-                7) Show teachers
-                8) Lookup teacher
-                9) Show profit
+                OPCIÓN 1: "ENROLL <ID_STUDENT> <ID_COURSE>" - Este comando nos permite asignar un estudiante a un curso.
+                              OPCIÓN 2: "ENROLL <ID_TEACHER> <ID_COURSE>" - Este comando nos permite asignar un profesor a un curso.
+                              OPCIÓN 3: "SHOW COURSES" - Este comando nos mostrará un listado con los cursos creados e información relacionada.
+                              OPCIÓN 4: "LOOKUP COURSE <ID_COURSE>" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
+                              OPCIÓN 5: "SHOW STUDENTS" - Este comando nos mostrará un listado con los alumnos creados.
+                              OPCIÓN 6: "LOOKUP STUDENT <ID_STUDENT>" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+                              OPCIÓN 7: "SHOW TEACHER" - Este comando nos mostrará un listado con los profesores creados.
+                              OPCIÓN 8: "LOOKUP TEACHER <ID_TEACHER>" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
+                              OPCIÓN 9: "SHOW PROFIT" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+                              OPCIÓN 10: "EXIT" - Este comando te permite salir del programa 
                 """);
     }
 
@@ -551,21 +552,19 @@ public class Utilities {
         studentList = new ArrayList<>();
 
 
-        Course courseDAM = new Course("DAM", 380);
-        Course courseASIX = new Course("ASIX", 250);
-        Course courseDAW = new Course("DAW", 380);
-        Course courseInfirmary = new Course("Enfermería", 520);
-        Course courseCybersecurity = new Course("Ciberseguridad", 720);
+        /*Course courseDAM = new Course("Defense Against the Dark Arts", 800);
+        Course courseASIX = new Course("Potions", 700);
 
-        Teacher teacherJaume = new Teacher("Jaume", 2000);
-        Teacher teacherAlex = new Teacher("Alex", 2125);
-        Teacher teacherJose = new Teacher("Jose", 1985);
 
-        Student studentCristian = new Student("Cristian", "C/ Falsa 123", "cristian@gmail.com");
-        Student studentXavi = new Student("Xavi", "Avenida ejemplo 46", "xavi@gmail.com");
-        Student studentManu = new Student("Manu", "C/ Caritg 12", "manu@gmail.com");
-        Student studentEdu = new Student("Edu", "C/ Extremadura 22", "edu@gmail.com");
-        Student studentRaul = new Student("Raul", "C/ Real 456", "raul@gmail.com");
+        Teacher teacherJaume = new Teacher("Albus Dumbledore", 2000);
+        Teacher teacherAlex = new Teacher("Severus Snape", 1500);
+
+
+        Student studentCristian = new Student("Harry Potter", "Godrick's Hollow", "harry.potter@emagic.com");
+        Student studentXavi = new Student("Hermione Granger", "Maverick Street, 19", "hermione.ganger@emagic.com");
+        Student studentManu = new Student("Ronald Weasley", "The Burrow, n/N", "ron.weasley@emagic.com");
+        Student studentEdu = new Student("Draco Malfoy", "Malfoy Manor", "draco.malfoy@emagic.com");
+
 
         courseList = new ArrayList<>();
         teacherList = new ArrayList<>();
@@ -573,19 +572,15 @@ public class Utilities {
 
         courseList.add(courseDAM);
         courseList.add(courseASIX);
-        courseList.add(courseDAW);
-        courseList.add(courseInfirmary);
-        courseList.add(courseCybersecurity);
 
         teacherList.add(teacherJaume);
         teacherList.add(teacherAlex);
-        teacherList.add(teacherJose);
 
         studentList.add(studentCristian);
         studentList.add(studentXavi);
         studentList.add(studentManu);
         studentList.add(studentEdu);
-        studentList.add(studentRaul);
+*/
 
       /*  Teacher teacher = new Teacher("Jose", 2000);
         Teacher teacher1 = new Teacher("Josefa", 1000);

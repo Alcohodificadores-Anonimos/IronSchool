@@ -3,7 +3,6 @@ package ironschool;
 public class Course {
     private static int idCounter;
     private String courseId;
-    private int courseIdInt;
     private String name;
     private double price;
     private double moneyEarned;
@@ -23,7 +22,7 @@ public class Course {
 
     //Constructor probicional para hacer pruebas con id int
     public Course(int courseId, String name, double price) {
-        this.courseIdInt = courseId;
+        this.courseId = String.valueOf(idCounter++);
         this.name = name;
         this.price = price;
     }
