@@ -73,7 +73,6 @@ public class Utilities {
             if (comandosSeparados.length <= 3) {
 
                 switch (comandosSeparados.length) {
-
                     case 2:
                         subCommand2 = comandosSeparados[1];
                         break;
@@ -82,6 +81,9 @@ public class Utilities {
                         subCommand2 = comandosSeparados[1];
                         subCommand3 = comandosSeparados[2];
                         break;
+                    default:
+                        System.err.println("Comprueba el comando introducido.");
+                        callMenu();
                 }
 
             }
