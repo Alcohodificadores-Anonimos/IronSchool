@@ -57,7 +57,7 @@ public class Utilities {
                     System.err.println("Introduce un comando valido");
                     scanner.nextLine();
                 }else{
-                    command = scanner.nextLine();
+                    command = scanner.nextLine().toUpperCase();
                     break;
                 }
             }
@@ -99,32 +99,28 @@ public class Utilities {
                 case "ASSIGN": //Assign
                     assignTeacherIntoCourse(subCommand2,subCommand3);
                     break;
-                case "SHOW COURSES": //Courses
-                    System.out.println(showAllCourses());
+                case "SHOW": //Courses
+                    switch (subCommand2) {
+                        case "COURSES" -> System.out.println(showAllCourses());
+                        case "STUDENTS" -> System.out.println(showAllStudents());
+                        case "TEACHERS" -> System.out.println(showAllTeachers());
+                        case "PROFIT" -> System.err.println("IMPLEMENTA METODO showProfitFromAllCourses()");
+                        default -> System.err.println("Introduce un comando valido");
+                    }
                     break;
-                case "LOOKUP COURSE": //Course
-                    lookupCourse(subCommand1);
-                    break;
-                case "SHOW STUDENTS": //Students
-                    System.out.println(showAllStudents());
-                    break;
-                case "LOOKUP STUDENT": //Student
-                    lookupStudent(subCommand1);
-                    break;
-                case "SHOW TEACHERS": //Teachers
-                    System.out.println(showAllTeachers());
-                    break;
-                case "LOOKUP TEACHER": //Teacher
-                    lookupTeacher(subCommand1);
-                    break;
-                case "SHOW PROFIT": //Profit
-                    //  System.out.println(showProfitFromAllCourses());
+                case "LOOKUP": //Course
+                    switch (subCommand2) {
+                        case "COURSE" -> System.out.println(lookupCourse(subCommand3));
+                        case "STUDENT" -> System.out.println(lookupStudent(subCommand3));
+                        case "TEACHER" -> System.out.println(lookupTeacher(subCommand3));
+                        default -> System.err.println("Introduce un comando valido");
+                    }
                     break;
                 case "EXIT": //Profit
-                    off= false;
+                    off = false;
                     break;
                 default:
-                    System.out.println("Introduce un comando valido");
+                    System.err.println("Introduce un comando valido");
                     break;
             }
         }
