@@ -150,6 +150,8 @@ public class Utilities {
     //Método para inscribir un alumno a un curso mediante sus IDs
     public static void enrollStudentIntoCourse(String studentID, String courseID) {
 
+        scanner = new Scanner(System.in);
+
         Student student = null;
         Course course = null;
 
@@ -257,6 +259,7 @@ public class Utilities {
     //Método para asignar un profesor a un curso mediante sus IDs
     public static void assignTeacherIntoCourse(String teacherID, String courseID) {
 
+        scanner = new Scanner(System.in);
 
         Teacher teacher = null;
         Course course = null;
@@ -445,6 +448,7 @@ public class Utilities {
     //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
     public static void createTeacher(List<Teacher> teachers) throws InputMismatchException {
 
+        Scanner scanner = new Scanner(System.in);
         int numTeachers;
 
 
@@ -460,7 +464,7 @@ public class Utilities {
         }
 
         for (int i = 0; i < numTeachers; i++) {
-
+            scanner = new Scanner(System.in);
             System.out.println("Enter the Teacher's name " + (i + 1));
             String name = scanner.nextLine();
             System.out.println("Enter the Teacher's salary");
@@ -481,6 +485,7 @@ public class Utilities {
     //METODO CREACION DE CURSOS ENTRANDO POR TECLADO LOS PARAMETROS
     public static void createCourses(List<Course> courses) throws InputMismatchException {
 
+        Scanner scanner = new Scanner(System.in);
         int numCourses;
 
         System.out.println("How many courses do you want?");
@@ -495,7 +500,7 @@ public class Utilities {
         }
 
         for (int i = 0; i < numCourses; i++) {
-
+            scanner = new Scanner(System.in);
             System.out.println("Enter the Course's name " + (i+1));
             String name = scanner.nextLine();
             System.out.println("Enter the price of this course ");
@@ -517,7 +522,7 @@ public class Utilities {
 
         //todo: Raul: OJO! QUE PASA SI EL USUARIO METE UN NOMBRE VACÍO?
 
-
+        Scanner scanner = new Scanner(System.in);
         int numStudents;
         System.out.println("How many students do you want?");
         while (true){
@@ -531,7 +536,7 @@ public class Utilities {
         }
 
         for (int i = 0; i < numStudents; i++) {
-
+            scanner = new Scanner(System.in);
             System.out.println("Enter the Student's name " +(i+1));
             String name = scanner.nextLine();
             System.out.println("Enter the adress of the Student ");
