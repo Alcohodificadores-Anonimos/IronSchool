@@ -12,6 +12,13 @@ public class Teacher {
         this.salary = salary;
     }
 
+    // todo: RAUL: OJO BORRAR ESTO DESPUES DE PRUEBAS
+    public Teacher(String teacherId, String name, double salary) {
+        this.teacherId = teacherId;
+        this.name = name;
+        this.salary = salary;
+    }
+
     private String getIdCounterToString() {
         return Integer.toString(idCounter++);
     }

@@ -14,7 +14,8 @@ public class Course {
         this.price = price;
     }
 
-    private Course(String courseId, String name, double price) {
+    // todo: RAUL: OJO PASARLO A PRIVATE EL CONSTRUCTOR QUE ESTO ERAN PRUEBAS
+    public Course(String courseId, String name, double price) {
         this.courseId = courseId;
         this.name = name;
         this.price = price;
