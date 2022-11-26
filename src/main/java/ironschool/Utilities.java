@@ -419,7 +419,7 @@ public class Utilities {
     // (The total money earned from all courses) - (The sum of all the teachers’ salaries) and return the result
 
     //Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
-    public static double showProfitFromAllCourses(List<Course> courseList, List<Teacher> teacherList) {
+    public static double showProfitFromAllCourses() {
 
         double totalEarned = 0;
         double totalSalaries = 0;

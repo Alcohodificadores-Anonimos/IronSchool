@@ -15,6 +15,14 @@ public class Student {
         this.email = email;
     }
 
+    // todo: RAUL: OJO BORRAR ESTO TRAS PRUEBAS
+    public Student(String studentId, String name, String address, String email) {
+        this.studentId = studentId;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+    }
+
     private String getIdCounterToString() {
         return Integer.toString(idCounter++);
     }
