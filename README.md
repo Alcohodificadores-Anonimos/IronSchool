@@ -20,7 +20,7 @@ Ejemplo dirección de directorios: ../IronSchool/.idea/src/main/java/ironschool
 
     1.- El programa nos pedirá que introduzcamos el nombre de nuestra escuela.
     2.- El programa nos preguntará cuantos profesores queremos añadir a nuestra escuela.
-    3.- Introduciremos el nombre del profesor 1 y posteriormente su salario y así         consecutivamente con el resto del profesorado.
+    3.- Introduciremos el nombre del profesor 1 y posteriormente su salario y así consecutivamente con el resto del profesorado.
 
 ### 2.- Menú creación Cursos
 
@@ -41,23 +41,56 @@ Ejemplo dirección de directorios: ../IronSchool/.idea/src/main/java/ironschool
 
 [![Image from Gyazo](https://i.gyazo.com/3a52c54dacfb2fc33f4c29a202a6db5e.png)](https://gyazo.com/3a52c54dacfb2fc33f4c29a202a6db5e)
 
-    OPCIÓN 1: "Enroll student to a course" - Este comando nos permite asignar un estudiante a un curso.
-    OPCIÓN 2: "Assign teacher to a course" - Este comando nos permite asignar un profesor a un curso.
-    OPCIÓN 3: "Show course" - Este comando nos mostrará un listado con los  cursos creados.
-    OPCIÓN 4: "Lookup course" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
-    OPCIÓN 5: "Show students" - Este comando nos mostrará un listado con los alumnos creados.
-    OPCIÓN 6: "Lookup student" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
-    OPCIÓN 7: "Show teachers" - Este comando nos mostrará un listado con los profesores creados.
-    OPCIÓN 8: "Lookup teacher" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
-    OPCIÓN 9: "Show profit" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+    OPCIÓN 1: "ENROLL <ID_STUDENT> <ID_COURSE>" - Este comando nos permite asignar un estudiante a un curso.
+    OPCIÓN 2: "ENROLL <ID_TEACHER> <ID_COURSE>" - Este comando nos permite asignar un profesor a un curso.
+    OPCIÓN 3: "SHOW COURSES" - Este comando nos mostrará un listado con los cursos creados e información relacionada.
+    OPCIÓN 4: "LOOKUP COURSE <ID_COURSE>" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
+    OPCIÓN 5: "SHOW STUDENTS" - Este comando nos mostrará un listado con los alumnos creados.
+    OPCIÓN 6: "LOOKUP STUDENTS <ID_STUDENT>" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+    OPCIÓN 7: "SHOW TEACHER" - Este comando nos mostrará un listado con los profesores creados.
+    OPCIÓN 8: "LOOKUP TEACHER <ID_TEACHER>" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
+    OPCIÓN 9: "SHOW PROFIT" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
     
+**EJEMPLOS:**
+#### ENROLL
+[![Image from Gyazo](https://i.gyazo.com/9cc79b0b79621f3e3f7a9d31b33eee27.png)](https://gyazo.com/9cc79b0b79621f3e3f7a9d31b33eee27)
+ 
+    Hemos añadido al alumno con ID:1 (Hermione Granger) al curso con ID:0 (Defense Against the Dark Arts)
+    
+ [![Image from Gyazo](https://i.gyazo.com/f5f6dbdd121bf1b2dc0051c6778a6a09.png)](https://gyazo.com/f5f6dbdd121bf1b2dc0051c6778a6a09)
+ 
+    Solo podremos asignar un curso a un estudiante, por lo tanto, cuando queramos asignar un curso a un estudiante el cual ya esté asignado a un curso nos aparecerá dicho mensaje.
+
+#### ASSIGN
+
+[![Image from Gyazo](https://i.gyazo.com/398aaacd97c2db987ad54f3b77e3ecc0.png)](https://gyazo.com/398aaacd97c2db987ad54f3b77e3ecc0)
+    
+    Hemos añadido el profesor con ID:0 (Albus Dumbledore) al curso con ID:0 (Defense Against the Dark Arts).
+    
+*En el caso de que queramos introducir un nuevo profesor a un curso el cual ya tiene un profesor asignado, el antiguo profesor será sobreescrito por el nuevo*
+    
+#### SHOW COURSES 
+
+[![Image from Gyazo](https://i.gyazo.com/ff21e7725df4543819b2cca876ca306d.png)](https://gyazo.com/ff21e7725df4543819b2cca876ca306d)
+    Con el comando SHOW COURSES podremos obtener información relativa a los cursos que hemos creado.
+
+#### LOOKUP COURSE <ID_COURSE>
+
+[![Image from Gyazo](https://i.gyazo.com/607c1bc155f5ba5e9de1954323c6a4d6.png)](https://gyazo.com/607c1bc155f5ba5e9de1954323c6a4d6)
+
+    LOOKUP COURSE nos muestra toda la información relativa a un curso en concreto.
+
+ #### SHOW PROFIT
+ 
+ 
+ <<<<<< FALTA IMPLEMENTAR EL METODO EN EL PROGRAMA >>>>>>>
 
 
 ## CRÉDITOS
 Organización: Alcohodificadores-Anónimos® 2022
 
-Raul Ruiz: https://github.com/RaulRuiz1997
-Eduard Blanco: https://github.com/eblancode
-Manuel Orfe: https://github.com/Manuelorfe
-Xavi Romero: https://github.com/xavi-dig
-Cristian Pérez: https://github.com/KogeCode
+Raul Ruiz: https://github.com/RaulRuiz1997 \
+Eduard Blanco: https://github.com/eblancode \
+Manuel Orfe: https://github.com/Manuelorfe \
+Xavi Romero: https://github.com/xavi-dig \
+Cristian Pérez: https://github.com/KogeCode 
