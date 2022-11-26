@@ -104,7 +104,7 @@ public class Utilities {
                         case "COURSES" -> System.out.println(showAllCourses());
                         case "STUDENTS" -> System.out.println(showAllStudents());
                         case "TEACHERS" -> System.out.println(showAllTeachers());
-                        case "PROFIT" -> System.err.println(showProfitFromAllCourses(courseList,teacherList));
+                        case "PROFIT" -> System.err.println(showProfitFromAllCourses());
                         default -> System.err.println("Introduce un comando valido");
                     }
                     break;
