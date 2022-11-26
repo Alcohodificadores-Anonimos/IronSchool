@@ -2,81 +2,101 @@ package ironschool;
 
 import java.util.*;
 
+// Clase donde se crearán todos los métodos de creación y gestión
 public class Utilities {
 
-    //CLASE DONDE SE CREARAN TODOS LOS MÉTODOS DE CREACIÓN Y GESTIÓN
-
-    private static Scanner scanner =  new Scanner(System.in);
-    public static List<Course> courseList = new ArrayList<>();
-    public static List<Student> studentList = new ArrayList<>();
-    public static List<Teacher> teacherList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+    public static List<Course> courseList;
+    public static List<Student> studentList;
+    public static List<Teacher> teacherList;
 
     public static void setUpSchool() {
 
-        try {
-            //--------Falta implementar bucle While(TRUE)
-            System.out.println("Type a name for the school: ");
-            String name = scanner.nextLine();
+        String name;
 
-            //METODO CREACION DE TEACHERS
+        try {
+
+            System.out.println("Escribe un nombre para la escuela: ");
+            while (true) {
+
+                name = scanner.nextLine();
+
+                if (name.isEmpty() || name.isBlank()) {
+
+                    System.out.println("Escribe un nombre válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+            // Método creación de profesores
             Utilities.createTeacher(teacherList);
-            //IMPRIMIMOS LA LISTA DE TEACHERS
+            // Imprimimos la lista de profesores
             System.out.println(teacherList);
 
-            //METODO CREACION DE CURSOS
+            // Método creación de cursos
             Utilities.createCourses(courseList);
-            //IMPRIMIMOS LA LISTA DE CURSOS
+            // Imprimimos la lista de cursos
             System.out.println(courseList);
 
-            //METODO DE CREACION DE ESTUDIANTES
+            // Método de creación de estudiantes
             Utilities.createStudent(studentList);
-            //IMPRIMIMOS LA LISTA DE ESTUDIANTES
+            // Imprimimos la lista de estudiantes
             System.out.println(studentList);
 
         } catch (Exception e) {
+
             System.err.println(e);
 
         }
     }
 
     public static void callMenu() {
+
         Scanner scanner;
         String command;
-        String subCommand1 = "";
+        String subCommand1;
         String subCommand2 = "";
         String subCommand3 = "";
-        boolean off = true;
+        String[] comandosSeparados;
 
-        while(off){
+        while (true) {
 
+            // Imprimimos el menú inicial
             printMenu();
-            //Controlamos que no inserte un numero
+            // Controlamos que no inserte un número
             scanner = new Scanner(System.in);
+
             while (true) {
+
                 if (scanner.hasNextInt()) {
+
                     System.err.println("Introduce un comando valido");
                     scanner.nextLine();
-                }else{
+
+                } else {
+
                     command = scanner.nextLine().toUpperCase();
                     break;
-                }
-            }
-            /*ERRORES
-            EJ:   (HOLA)(ENROLL11) si no pones dos espacios lo cual no rellena los subcommands. Controlar que command.split("").length sea = a 3
-                   (ENROLL 1 1 1) te lo deja poner pero no utiliza ninguno a partir del segundo numero.
-            */
 
-            String[] comandosSeparados = command.split(" ");
+                }
+
+            }
+
+            comandosSeparados = command.split(" ");
             subCommand1 = comandosSeparados[0];
 
             // Si ponemos 1, 2 o 3 palabras en el comando, esta bien, si no, no
-            if (comandosSeparados.length <= 3) {
+            if (comandosSeparados.length <= 3 && comandosSeparados.length > 1) {
 
                 switch (comandosSeparados.length) {
                     case 2:
                         subCommand2 = comandosSeparados[1];
                         break;
-
                     case 3:
                         subCommand2 = comandosSeparados[1];
                         subCommand3 = comandosSeparados[2];
@@ -88,18 +108,15 @@ public class Utilities {
 
             }
 
-            /* subCommand1 = command.split(" ")[0];
-             subCommand2 = command.split(" ")[1];
-             subCommand3 = command.split(" ")[2];*/
-
+            // Dependiendo del comando seleccionado haremos una funcionalidad u otra
             switch (subCommand1) {
-                case "ENROLL": //Enroll
+                case "ENROLL":
                     enrollStudentIntoCourse(subCommand2, subCommand3);
                     break;
-                case "ASSIGN": //Assign
-                    assignTeacherIntoCourse(subCommand2,subCommand3);
+                case "ASSIGN":
+                    assignTeacherIntoCourse(subCommand2, subCommand3);
                     break;
-                case "SHOW": //Courses
+                case "SHOW":
                     switch (subCommand2) {
                         case "COURSES" -> System.out.println(showAllCourses());
                         case "STUDENTS" -> System.out.println(showAllStudents());
@@ -108,7 +125,7 @@ public class Utilities {
                         default -> System.err.println("Introduce un comando valido");
                     }
                     break;
-                case "LOOKUP": //Course
+                case "LOOKUP":
                     switch (subCommand2) {
                         case "COURSE" -> System.out.println(lookupCourse(subCommand3));
                         case "STUDENT" -> System.out.println(lookupStudent(subCommand3));
@@ -116,11 +133,10 @@ public class Utilities {
                         default -> System.err.println("Introduce un comando valido");
                     }
                     break;
-                case "EXIT": //Profit
-                    off = false;
-                    break;
+                case "EXIT":
+                    return;
                 default:
-                    System.err.println("Introduce un comando valido");
+                    System.err.println("Introduce un comando válido!");
                     break;
             }
         }
@@ -129,20 +145,22 @@ public class Utilities {
 
     public static void printMenu() {
         System.out.println("""
-                OPCIÓN 1: "ENROLL <ID_STUDENT> <ID_COURSE>" - Este comando nos permite asignar un estudiante a un curso.
-                              OPCIÓN 2: "ENROLL <ID_TEACHER> <ID_COURSE>" - Este comando nos permite asignar un profesor a un curso.
-                              OPCIÓN 3: "SHOW COURSES" - Este comando nos mostrará un listado con los cursos creados e información relacionada.
-                              OPCIÓN 4: "LOOKUP COURSE <ID_COURSE>" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
-                              OPCIÓN 5: "SHOW STUDENTS" - Este comando nos mostrará un listado con los alumnos creados.
-                              OPCIÓN 6: "LOOKUP STUDENT <ID_STUDENT>" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
-                              OPCIÓN 7: "SHOW TEACHER" - Este comando nos mostrará un listado con los profesores creados.
-                              OPCIÓN 8: "LOOKUP TEACHER <ID_TEACHER>" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
-                              OPCIÓN 9: "SHOW PROFIT" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
-                              OPCIÓN 10: "EXIT" - Este comando te permite salir del programa 
+                                
+                    OPCIÓN 1: "ENROLL <ID_STUDENT> <ID_COURSE>" - Este comando nos permite asignar un estudiante a un curso.
+                    OPCIÓN 2: "ENROLL <ID_TEACHER> <ID_COURSE>" - Este comando nos permite asignar un profesor a un curso.
+                    OPCIÓN 3: "SHOW COURSES" - Este comando nos mostrará un listado con los cursos creados e información relacionada.
+                    OPCIÓN 4: "LOOKUP COURSE <ID_COURSE>" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
+                    OPCIÓN 5: "SHOW STUDENTS" - Este comando nos mostrará un listado con los alumnos creados.
+                    OPCIÓN 6: "LOOKUP STUDENT <ID_STUDENT>" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+                    OPCIÓN 7: "SHOW TEACHERS" - Este comando nos mostrará un listado con los profesores creados.
+                    OPCIÓN 8: "LOOKUP TEACHER <ID_TEACHER>" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
+                    OPCIÓN 9: "SHOW PROFIT" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+                    OPCIÓN 10: "EXIT" - Este comando te permite salir del programa 
+                              
                 """);
     }
 
-    //Método para inscribir un alumno a un curso mediante sus IDs
+    // Método para inscribir un alumno a un curso mediante sus IDs
     public static void enrollStudentIntoCourse(String studentID, String courseID) {
 
         scanner = new Scanner(System.in);
@@ -251,7 +269,7 @@ public class Utilities {
 
     }
 
-    //Método para asignar un profesor a un curso mediante sus IDs
+    // Método para asignar un profesor a un curso mediante sus ID
     public static void assignTeacherIntoCourse(String teacherID, String courseID) {
 
         scanner = new Scanner(System.in);
@@ -311,17 +329,12 @@ public class Utilities {
 
     }
 
-    //SHOW COURSES: This command will display a list of all courses
-
-    //Método para enseñar todos los cursos
+    // Método para enseñar todos los cursos
     public static List<Course> showAllCourses() {
         return courseList;
     }
 
-    //LOOKUP COURSE [COURSE_ID]:
-    // This command will display the full details of the specified course
-
-    //Método para enseñar toda la información de un curso mediante su ID
+    // Método para enseñar toda la información de un curso mediante su ID
     public static String lookupCourse(String courseID) {
 
         Course course = null;
@@ -345,18 +358,12 @@ public class Utilities {
 
     }
 
-    //SHOW STUDENTS:
-    // This command will display a list of all students
-
-    //Método para enseñar todos los estudiantes
+    // Método para enseñar todos los estudiantes
     public static List<Student> showAllStudents() {
         return studentList;
     }
 
-    //LOOKUP STUDENT [STUDENT_ID]:
-    // This command will display the full details of the specified student
-
-    //Método para enseñar toda la información de un estudiante mediante su ID
+    // Método para enseñar toda la información de un estudiante mediante su ID
     public static String lookupStudent(String studentID) {
 
         Student student = null;
@@ -380,18 +387,12 @@ public class Utilities {
 
     }
 
-    //SHOW TEACHERS:
-    // This command will display a list of all teachers
-
-    //Método para enseñar todos los profesores
+    // Método para enseñar todos los profesores
     public static List<Teacher> showAllTeachers() {
         return teacherList;
     }
 
-    //LOOKUP TEACHER [TEACHER_ID]:
-    // This command will display the full details of the specified teacher
-
-    //Método para enseñar toda la información de un profesor mediante su ID
+    // Método para enseñar toda la información de un profesor mediante su ID
     public static String lookupTeacher(String teacherID) {
 
         Teacher teacher = null;
@@ -415,11 +416,7 @@ public class Utilities {
 
     }
 
-    //SHOW PROFIT:
-    // This command will calculate
-    // (The total money earned from all courses) - (The sum of all the teachers’ salaries) and return the result
-
-    //Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
+    // Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
     public static double showProfitFromAllCourses() {
 
         double totalEarned = 0;
@@ -437,174 +434,244 @@ public class Utilities {
 
     }
 
-    //  ¡¡¡ ATENCIÓN !!!  Hacer metodos TRY CATCH para que el programa no crashee cuando en el Scanner metemos datos errones (Enter Int Output String)
-
-
-    //METODO CREACION DE TEACHERS ENTRANDO POR TECLADO LOS PARAMETROS
+    // Método creación de profesores entrando parámetros por teclado
     public static void createTeacher(List<Teacher> teachers) throws InputMismatchException {
 
         Scanner scanner = new Scanner(System.in);
         int numTeachers;
-
+        String name;
+        double salary;
 
         System.out.println("How many teacher do you want?");
+
         while (true) {
+
             if (!scanner.hasNextInt()) {
+
                 System.err.println("Introduce un valor numérico");
                 scanner.next();
-            }else{
+
+            } else {
+
                 numTeachers = scanner.nextInt();
                 break;
+
             }
+
         }
 
         for (int i = 0; i < numTeachers; i++) {
+
             scanner = new Scanner(System.in);
+
             System.out.println("Enter the Teacher's name " + (i + 1));
-            String name = scanner.nextLine();
+
+            // Validamos que el usuario no meta un valor vacío
+            while (true) {
+
+                name = scanner.nextLine();
+
+                if (name.isEmpty() || name.isBlank()) {
+
+                    System.out.println("Escribe un nombre válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
             System.out.println("Enter the Teacher's salary");
-            while(true){
-                if(!scanner.hasNextDouble()){
-                    System.err.println("Introduce un valor numerico");
+
+            // Validamos que el usuario meta un valor numérico
+            while (true) {
+
+                if (!scanner.hasNextDouble()) {
+
+                    System.err.println("Introduce un valor numérico!");
                     scanner.next();
-                }else{
-                    double salary = scanner.nextDouble();
+
+                } else {
+
+                    salary = scanner.nextDouble();
+                    // Añadimos los profesores a la lista
                     teachers.add(new Teacher(name, salary));
                     break;
+
                 }
+
             }
+
         }
 
     }
 
-    //METODO CREACION DE CURSOS ENTRANDO POR TECLADO LOS PARAMETROS
+    // Método creación de cursos entrado parámetros por teclado
     public static void createCourses(List<Course> courses) throws InputMismatchException {
 
         Scanner scanner = new Scanner(System.in);
         int numCourses;
+        String name;
+        double price;
 
         System.out.println("How many courses do you want?");
+
         while (true) {
             if (!scanner.hasNextInt()) {
                 System.err.println("Introduce un valor numérico");
                 scanner.next();
-            }else{
+            } else {
                 numCourses = scanner.nextInt();
                 break;
             }
         }
 
         for (int i = 0; i < numCourses; i++) {
+
             scanner = new Scanner(System.in);
-            System.out.println("Enter the Course's name " + (i+1));
-            String name = scanner.nextLine();
+
+            System.out.println("Enter the Course's name " + (i + 1));
+            // Validamos que el usuario no meta un valor vacío
+            while (true) {
+
+                name = scanner.nextLine();
+
+                if (name.isEmpty() || name.isBlank()) {
+
+                    System.out.println("Escribe un nombre válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+
             System.out.println("Enter the price of this course ");
-            while (true){
-                if(!scanner.hasNextDouble()){
-                    System.err.println("Introduce un valor numerico");
+
+            while (true) {
+
+                if (!scanner.hasNextDouble()) {
+
+                    System.err.println("Introduce un valor numérico!");
                     scanner.next();
-                }else{
-                    double price = scanner.nextDouble();
+
+                } else {
+
+                    price = scanner.nextDouble();
                     courses.add(new Course(name, price));
                     break;
+
                 }
+
             }
+
         }
+
     }
 
-    //METODO CREACION DE ESTUDIANTES ENTRANDO POR TECLADO LOS PARAMETROS
+    // Método creación de estudiante entrado parámetros por teclado
     public static void createStudent(List<Student> students) throws InputMismatchException {
 
-        //todo: Raul: OJO! QUE PASA SI EL USUARIO METE UN NOMBRE VACÍO?
-
         Scanner scanner = new Scanner(System.in);
+
         int numStudents;
+        String name, address, email;
+
         System.out.println("How many students do you want?");
-        while (true){
-            if(!scanner.hasNextInt()){
-                System.err.println("Introduce un valor numerico");
+        while (true) {
+
+            if (!scanner.hasNextInt()) {
+
+                System.err.println("Introduce un valor numérico!");
                 scanner.next();
-            }else{
+
+            } else {
+
                 numStudents = scanner.nextInt();
                 break;
+
             }
+
         }
 
         for (int i = 0; i < numStudents; i++) {
-            scanner = new Scanner(System.in);
-            System.out.println("Enter the Student's name " +(i+1));
-            String name = scanner.nextLine();
-            System.out.println("Enter the adress of the Student ");
-            String adress = scanner.nextLine();
-            System.out.println("Enter the email of the Student ");
-            String email = scanner.nextLine();
 
-            students.add(new Student(name, adress, email));
+            scanner = new Scanner(System.in);
+
+            System.out.println("Enter the Student's name " + (i + 1));
+
+            // Validamos que el usuario no meta un valor vacío
+            while (true) {
+
+                name = scanner.nextLine();
+
+                if (name.isEmpty() || name.isBlank()) {
+
+                    System.out.println("Escribe un nombre válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+            System.out.println("Enter the address of the Student ");
+
+            // Validamos que el usuario no meta un valor vacío
+            while (true) {
+
+                address = scanner.nextLine();
+
+                if (address.isEmpty() || address.isBlank()) {
+
+                    System.out.println("Escribe una dirección válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+            System.out.println("Enter the email of the Student ");
+            // Validamos que el usuario no meta un valor vacío
+            while (true) {
+
+                email = scanner.nextLine();
+
+                if (email.isEmpty() || email.isBlank()) {
+
+                    System.out.println("Escribe un email válido!");
+
+                } else {
+
+                    break;
+
+                }
+
+            }
+
+            students.add(new Student(name, address, email));
+
         }
+
     }
 
-    // TEMPORAL >>> TESTS HERE <<< method for functionalities to implement later on
-    // TO BE DELETED ...
-    public static void tempMethodToTestFunctionalities() {
+    // Método para inicializar los arrays
+    public static void initializeArrays() {
 
         courseList = new ArrayList<>();
         teacherList = new ArrayList<>();
         studentList = new ArrayList<>();
 
-
-        /*Course courseDAM = new Course("Defense Against the Dark Arts", 800);
-        Course courseASIX = new Course("Potions", 700);
-
-
-        Teacher teacherJaume = new Teacher("Albus Dumbledore", 2000);
-        Teacher teacherAlex = new Teacher("Severus Snape", 1500);
-
-
-        Student studentCristian = new Student("Harry Potter", "Godrick's Hollow", "harry.potter@emagic.com");
-        Student studentXavi = new Student("Hermione Granger", "Maverick Street, 19", "hermione.ganger@emagic.com");
-        Student studentManu = new Student("Ronald Weasley", "The Burrow, n/N", "ron.weasley@emagic.com");
-        Student studentEdu = new Student("Draco Malfoy", "Malfoy Manor", "draco.malfoy@emagic.com");
-
-
-        courseList = new ArrayList<>();
-        teacherList = new ArrayList<>();
-        studentList = new ArrayList<>();
-
-        courseList.add(courseDAM);
-        courseList.add(courseASIX);
-
-        teacherList.add(teacherJaume);
-        teacherList.add(teacherAlex);
-
-        studentList.add(studentCristian);
-        studentList.add(studentXavi);
-        studentList.add(studentManu);
-        studentList.add(studentEdu);
-*/
-
-      /*  Teacher teacher = new Teacher("Jose", 2000);
-        Teacher teacher1 = new Teacher("Josefa", 1000);
-        Student student = new Student("St", "email@email.com", "en la calle, 69");
-        Student student1 = new Student("Stu", "email@email.org", "en la calle, 66");
-        Course course = new Course("Cursillo", 999);
-        Course course1 = new Course("Master", 1000);
-        teacherList.add(teacher);
-        teacherList.add(teacher1);
-        studentList.add(student);
-        studentList.add(student1);
-        courseList.add(course);
-        courseList.add(course1);
-
-        System.out.println(teacher.toString());
-        System.out.println(teacherList.toString());
-        System.out.println(student.toString());
-        System.out.println(course.toString());
-
-        enrollStudentIntoCourse(student.getStudentId(), course1.getCourseId());
-
-        System.out.println(student);
-        System.out.println(course1);
-    */
     }
 
 }
