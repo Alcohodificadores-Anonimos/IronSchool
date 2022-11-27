@@ -1,7 +1,7 @@
 package ironschool;
 
 public class Course {
-
+    private static int idCounter;
     private String courseId;
     private String name;
     private double price;
@@ -9,13 +9,21 @@ public class Course {
     private Teacher teacher;
 
     public Course(String name, double price) {
-        this.courseId = Utilities.generarIdRandom();
+        this.courseId = String.valueOf(idCounter++);
         this.name = name;
         this.price = price;
     }
 
-    private Course(String courseId, String name, double price) {
+    // todo: RAUL: OJO PASARLO A PRIVATE EL CONSTRUCTOR QUE ESTO ERAN PRUEBAS
+    public Course(String courseId, String name, double price) {
         this.courseId = courseId;
+        this.name = name;
+        this.price = price;
+    }
+
+    //Constructor probicional para hacer pruebas con id int
+    public Course(int courseId, String name, double price) {
+        this.courseId = String.valueOf(idCounter++);
         this.name = name;
         this.price = price;
     }
@@ -58,6 +66,10 @@ public class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public String getIdCounterToString() {
+        return Integer.toString(idCounter++);
     }
 
 

@@ -1,0 +1,8 @@
+
+
+- test: (Junit) >> TODOS
+
+- Diagrama de clases >> Edu
+
+-Limpiar código >> Edu
+
