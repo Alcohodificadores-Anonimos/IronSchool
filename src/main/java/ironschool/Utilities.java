@@ -333,6 +333,10 @@ public class Utilities {
 
     // Método para enseñar todos los cursos
     public static List<Course> showAllCourses() {
+
+        if (courseList.isEmpty()){
+            System.err.println("No hay cursos registrados");
+        }
         return courseList;
     }
 
@@ -362,8 +366,12 @@ public class Utilities {
 
     // Método para enseñar todos los estudiantes
     public static List<Student> showAllStudents() {
+        if (studentList.isEmpty()){
+            System.err.println("No hay estudiantes registrados");
+        }
         return studentList;
     }
+
 
     // Método para enseñar toda la información de un estudiante mediante su ID
     public static String lookupStudent(String studentID) {
@@ -391,9 +399,12 @@ public class Utilities {
 
     // Método para enseñar todos los profesores
     public static List<Teacher> showAllTeachers() {
+
+        if (teacherList.isEmpty()){
+            System.err.println("No hay profesores registrados");
+        }
         return teacherList;
     }
-
     // Método para enseñar toda la información de un profesor mediante su ID
     public static String lookupTeacher(String teacherID) {
 
@@ -419,8 +430,8 @@ public class Utilities {
     }
 
     // Método para mostrar el beneficio recaudado de todos los cursos restando el salario de los profesores
-    public static double showProfitFromAllCourses() {
-
+    public static String showProfitFromAllCourses() {
+        
         double totalEarned = 0;
         double totalSalaries = 0;
 
@@ -432,7 +443,7 @@ public class Utilities {
             totalSalaries += teacher.getSalary();
         }
 
-        return totalEarned - totalSalaries;
+        return "El beneficio es de " + (totalEarned - totalSalaries) + "€";
 
     }
 
