@@ -39,17 +39,8 @@ Ejemplo dirección de directorios: ../IronSchool/.idea/src/main/java/ironschool
 
 ### 4.- Menú ejecución de comandos e interacción con el programa
 
-[![Image from Gyazo](https://i.gyazo.com/3a52c54dacfb2fc33f4c29a202a6db5e.png)](https://gyazo.com/3a52c54dacfb2fc33f4c29a202a6db5e)
-
-    OPCIÓN 1: "ENROLL <ID_STUDENT> <ID_COURSE>" - Este comando nos permite asignar un estudiante a un curso.
-    OPCIÓN 2: "ENROLL <ID_TEACHER> <ID_COURSE>" - Este comando nos permite asignar un profesor a un curso.
-    OPCIÓN 3: "SHOW COURSES" - Este comando nos mostrará un listado con los cursos creados e información relacionada.
-    OPCIÓN 4: "LOOKUP COURSE <ID_COURSE>" - Este comando nos permitirá buscar un curso y mostrar información relacionada.
-    OPCIÓN 5: "SHOW STUDENTS" - Este comando nos mostrará un listado con los alumnos creados.
-    OPCIÓN 6: "LOOKUP STUDENTS <ID_STUDENT>" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
-    OPCIÓN 7: "SHOW TEACHER" - Este comando nos mostrará un listado con los profesores creados.
-    OPCIÓN 8: "LOOKUP TEACHER <ID_TEACHER>" - Este comando nos permitirá buscar a un profesor y mostrar información relacionada.
-    OPCIÓN 9: "SHOW PROFIT" - Este comando nos permitirá buscar a un estudiante y mostrar información relacionada.
+[![Image from Gyazo](https://i.gyazo.com/7501c6a709d0014481138c88d8527d26.png)](https://gyazo.com/7501c6a709d0014481138c88d8527d26)
+   
     
 **EJEMPLOS:**
 #### ENROLL
@@ -82,15 +73,19 @@ Ejemplo dirección de directorios: ../IronSchool/.idea/src/main/java/ironschool
 
  #### SHOW PROFIT
  
- 
- <<<<<< FALTA IMPLEMENTAR EL METODO EN EL PROGRAMA >>>>>>>
+ [![Image from Gyazo](https://i.gyazo.com/d0a5774774a4c55731be0c223ca2f7bf.png)](https://gyazo.com/d0a5774774a4c55731be0c223ca2f7bf)
 
+*Hay que remarcar que en este caso el beneficio es negativo debido a que no ha sido asignado ningún alumno a un curso debido a que están de vacaciones y no se han matriculado aún, solo se han tenido en cuenta el sueldo de los profesores.*
+
+#DIAGRAMA DE CLASES#
+
+[![Image from Gyazo](https://i.gyazo.com/ded2a6a022b8ef0ea8291525df75d298.png)](https://gyazo.com/ded2a6a022b8ef0ea8291525df75d298)
 
 ## CRÉDITOS
 Organización: Alcohodificadores-Anónimos® 2022
 
-Raul Ruiz: https://github.com/RaulRuiz1997 \
-Eduard Blanco: https://github.com/eblancode \
-Manuel Orfe: https://github.com/Manuelorfe \
-Xavi Romero: https://github.com/xavi-dig \
-Cristian Pérez: https://github.com/KogeCode 
+Raul Ruiz: https://github.com/RaulRuiz1997    LinkedIn: https://www.linkedin.com/in/ra%C3%BAl-ruiz-pedrosa-3b4135164 \
+Eduard Blanco: https://github.com/eblancode   LinkedIn: https://www.linkedin.com/eduardblanco \
+Manuel Orfe: https://github.com/Manuelorfe    LinkedIn: https://www.linkedin.com/in/manuel-ortega-fernandez \
+Xavi Romero: https://github.com/xavi-dig      LinkedIn: https://www.linkedin.com/in/xaviromerolopez \
+Cristian Pérez: https://github.com/KogeCode   LinkedIn: https://www.linkedin.com/in/cristian-p%C3%A9rez-barbero-87616478/
