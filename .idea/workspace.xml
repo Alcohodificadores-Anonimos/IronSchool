@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4824295d-753a-4102-aa44-d105a1822bd6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_11_2022_14_02__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ironschool/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UtilitiesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UtilitiesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Course.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Teacher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ironschool/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ironschool/Utilities.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,18 +50,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Projects IntelliJ/Lab3.08&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/edubl/Documents/GitHub/IronSchool",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ironschool.Main" />
@@ -90,7 +87,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ca751fa1-3693-465a-b1de-e7ca0dc7a7ff" name="Changes" comment="" />
+      <changelist id="4824295d-753a-4102-aa44-d105a1822bd6" name="Changes" comment="" />
       <created>1668776327435</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

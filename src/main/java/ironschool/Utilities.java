@@ -1,6 +1,7 @@
 package ironschool;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 // Clase donde se crearán todos los métodos de creación y gestión
 public class Utilities {
@@ -9,6 +10,7 @@ public class Utilities {
     public static List<Course> courseList;
     public static List<Student> studentList;
     public static List<Teacher> teacherList;
+    private static final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     public static void setUpSchool() {
 
@@ -21,7 +23,7 @@ public class Utilities {
 
                 name = scanner.nextLine();
 
-                if (name.isEmpty() || name.isBlank()) {
+                if (name.isEmpty() || name.isBlank() || isNumeric(name)) {
 
                     System.out.println("Escribe un nombre válido!");
 
@@ -121,7 +123,7 @@ public class Utilities {
                         case "COURSES" -> System.out.println(showAllCourses());
                         case "STUDENTS" -> System.out.println(showAllStudents());
                         case "TEACHERS" -> System.out.println(showAllTeachers());
-                        case "PROFIT" -> System.err.println(showProfitFromAllCourses());
+                        case "PROFIT" -> System.out.println(showProfitFromAllCourses());
                         default -> System.err.println("Introduce un comando valido");
                     }
                     break;
@@ -471,7 +473,7 @@ public class Utilities {
 
                 name = scanner.nextLine();
 
-                if (name.isEmpty() || name.isBlank()) {
+                if (name.isEmpty() || name.isBlank() || isNumeric(name)) {
 
                     System.out.println("Escribe un nombre válido!");
 
@@ -538,7 +540,7 @@ public class Utilities {
 
                 name = scanner.nextLine();
 
-                if (name.isEmpty() || name.isBlank()) {
+                if (name.isEmpty() || name.isBlank() || isNumeric(name)) {
 
                     System.out.println("Escribe un nombre válido!");
 
@@ -549,7 +551,6 @@ public class Utilities {
                 }
 
             }
-
 
             System.out.println("Enter the price of this course ");
 
@@ -610,7 +611,7 @@ public class Utilities {
 
                 name = scanner.nextLine();
 
-                if (name.isEmpty() || name.isBlank()) {
+                if (name.isEmpty() || name.isBlank() || isNumeric(name)) {
 
                     System.out.println("Escribe un nombre válido!");
 
@@ -662,6 +663,15 @@ public class Utilities {
             students.add(new Student(name, address, email));
 
         }
+
+    }
+
+    public static boolean isNumeric(String strNum) {
+
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches();
 
     }
 
