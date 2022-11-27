@@ -77,7 +77,8 @@ Ejemplo dirección de directorios: ../IronSchool/.idea/src/main/java/ironschool
 
 *Hay que remarcar que en este caso el beneficio es negativo debido a que no ha sido asignado ningún alumno a un curso debido a que están de vacaciones y no se han matriculado aún, solo se han tenido en cuenta el sueldo de los profesores.*
 
-##DIAGRAMA DE CLASES
+
+ ## DIAGRAMA DE CLASE
 
 [![Image from Gyazo](https://i.gyazo.com/ded2a6a022b8ef0ea8291525df75d298.png)](https://gyazo.com/ded2a6a022b8ef0ea8291525df75d298)
 
