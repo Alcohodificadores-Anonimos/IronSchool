@@ -1,7 +1,7 @@
 # IronSchool
 
 ##  INTRODUCCIÓN
-IronSchool es un proyecto desarrollado por el grupo **Alcohodificadores-Anónimo&reg;s** desarrollado en el lenguaje de programación Java el cual simula una gestión de venta de cursos. Dicho proyecto forma parte los proyectos grupales que Ironhack&copy; formula a los alumnos de sus bootcamps para que estos desarrollen el proyecto de forma grupal.
+IronSchool es un proyecto desarrollado por el grupo **Alcohodificadores-Anónimos&reg;** desarrollado en el lenguaje de programación Java el cual simula una gestión de venta de cursos. Dicho proyecto forma parte los proyectos grupales que Ironhack&copy; formula a los alumnos de sus bootcamps para que estos desarrollen el proyecto de forma grupal.
 
 ##  INSTRUCCIONES DE INSTALACIÓN DEL PROGRAMA PARA SU USO
 
