@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 public class Utilities {
 
     private static Scanner scanner = new Scanner(System.in);
-    public static List<Course> courseList;
-    public static List<Student> studentList;
-    public static List<Teacher> teacherList;
+    private static List<Course> courseList;
+    private static List<Student> studentList;
+    private static List<Teacher> teacherList;
     private static final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     public static void setUpSchool() {
